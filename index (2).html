@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soda La Esquina | Comida casera en Grecia (demo)</title>
+<meta name="description" content="Demo de página web para una soda: menú del día, pedidos express por WhatsApp y horario.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#fff8ec;--cream2:#fdeed4;--brown:#3b2414;--orange:#e8692c;--orange-d:#c9531c;--green:#2f7d4f;--muted:#7a6352;--line:#efdcc0;--r:20px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:Inter,sans-serif;background:var(--cream);color:var(--brown);line-height:1.6}
+h1,h2,h3{font-family:Fraunces,serif;line-height:1.1}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.demo-badge{background:var(--brown);color:#f6dfc0;font-size:13px;text-align:center;padding:8px 12px}
+.demo-badge a{color:#ffb98f;font-weight:700;text-decoration:underline}
+header{position:sticky;top:0;z-index:40;background:rgba(255,248,236,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;justify-content:space-between;align-items:center;height:70px}
+.logo{font-family:Fraunces;font-weight:800;font-size:24px;display:flex;align-items:center;gap:10px}
+.logo i{font-style:normal;width:42px;height:42px;border-radius:50%;background:var(--orange);display:grid;place-items:center;font-size:22px}
+.nav ul{display:flex;gap:26px;list-style:none;font-weight:600;font-size:15px}
+.nav ul a:hover{color:var(--orange)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:999px;font-weight:700;border:0;transition:transform .15s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-o{background:var(--orange);color:#fff}.btn-o:hover{background:var(--orange-d)}
+.btn-line{border:2px solid var(--brown);color:var(--brown);background:transparent}
+.btn-g{background:var(--green);color:#fff}
+.hero{padding:70px 0 90px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+.tag{display:inline-block;background:var(--cream2);border:1px solid var(--line);padding:6px 14px;border-radius:999px;font-weight:700;font-size:13px;color:var(--orange-d);margin-bottom:20px}
+.hero h1{font-size:clamp(40px,6vw,72px);font-weight:800;letter-spacing:-1.5px;margin-bottom:20px}
+.hero h1 span{color:var(--orange);font-style:italic}
+.hero p{font-size:18px;color:var(--muted);max-width:520px;margin-bottom:30px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.plate{aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 50% 50%,#fff 0 58%,#f3e3c9 59% 62%,#fff 63% 70%,transparent 71%),radial-gradient(circle,var(--cream2),transparent 70%);position:relative;max-width:440px;margin:0 auto;width:100%}
+.plate .food{position:absolute;border-radius:50%;display:grid;place-items:center;font-size:clamp(34px,5vw,54px);filter:drop-shadow(0 8px 10px rgba(0,0,0,.12))}
+.f1{top:22%;left:24%}.f2{top:22%;right:24%}.f3{bottom:24%;left:30%}.f4{bottom:26%;right:28%}.f5{top:42%;left:44%}
+.sticker{position:absolute;background:#fff;border:2px solid var(--brown);border-radius:16px;padding:10px 16px;font-weight:700;box-shadow:5px 5px 0 var(--brown);font-size:14px}
+.s1{top:6%;right:0;transform:rotate(4deg)}.s2{bottom:6%;left:0;transform:rotate(-4deg)}
+.strip{background:var(--green);color:#fff;padding:16px 0;overflow:hidden;white-space:nowrap}
+.strip div{display:inline-block;animation:mq 25s linear infinite;font-weight:700;font-size:15px}
+@keyframes mq{to{transform:translateX(-50%)}}
+section{padding:90px 0}
+.head{text-align:center;max-width:620px;margin:0 auto 46px}
+.head small{color:var(--orange-d);font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:12.5px}
+.head h2{font-size:clamp(32px,4vw,48px);margin:8px 0 12px}
+.head p{color:var(--muted)}
+.day{background:#fff;border:2px solid var(--brown);border-radius:26px;padding:34px;box-shadow:8px 8px 0 var(--brown);display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;margin-bottom:60px}
+.day h3{font-size:32px;margin-bottom:8px}
+.day .price{font-family:Fraunces;font-size:44px;color:var(--orange);font-weight:800}
+.day ul{list-style:none;display:grid;gap:8px;margin:16px 0}
+.day li::before{content:"✔ ";color:var(--green);font-weight:800}
+.day-art{font-size:120px;text-align:center;background:var(--cream2);border-radius:20px;padding:30px}
+.tabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:30px}
+.tab{background:transparent;border:2px solid var(--brown);padding:9px 20px;border-radius:999px;font-weight:700}
+.tab.on{background:var(--brown);color:#fff}
+.menu{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.item{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 20px;display:flex;gap:16px;align-items:center;transition:transform .2s}
+.item:hover{transform:translateY(-3px)}
+.item .em{font-size:36px;width:62px;height:62px;border-radius:16px;background:var(--cream2);display:grid;place-items:center;flex-shrink:0}
+.item .info{flex:1}
+.item h4{font-size:16.5px}
+.item p{color:var(--muted);font-size:14px}
+.item .pr{font-weight:800;color:var(--orange-d);white-space:nowrap}
+.qty{display:flex;align-items:center;gap:8px;margin-top:6px}
+.qty button{width:30px;height:30px;border-radius:50%;border:2px solid var(--brown);background:#fff;font-weight:800;line-height:1}
+.qty span{min-width:18px;text-align:center;font-weight:700}
+.hide{display:none}
+.cart{position:sticky;bottom:18px;margin-top:30px;background:var(--brown);color:#fff;border-radius:20px;padding:16px 22px;display:flex;justify-content:space-between;align-items:center;gap:16px;box-shadow:0 18px 40px rgba(59,36,20,.35);transform:translateY(140%);transition:transform .35s;z-index:20}
+.cart.show{transform:none}
+.cart b{font-size:18px}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px}
+.card .ic{font-size:34px;margin-bottom:10px}
+.card h3{font-size:22px;margin-bottom:8px}
+.card p,.card td{color:var(--muted);font-size:15px}
+.card table{width:100%}.card td:last-child{text-align:right;font-weight:600;color:var(--brown)}
+.map{border-radius:var(--r);overflow:hidden;border:2px solid var(--brown);height:360px;margin-top:24px}
+.map iframe{width:100%;height:100%;border:0}
+footer{background:var(--brown);color:#d9c2a6;padding:36px 0;text-align:center;font-size:14px}
+footer a{color:#ffb98f;font-weight:700}
+.modal{position:fixed;inset:0;background:rgba(30,18,10,.6);display:none;place-items:center;z-index:100;padding:20px}
+.modal.open{display:grid}
+.modal-box{background:#fff;border-radius:22px;max-width:440px;width:100%;padding:28px;box-shadow:0 30px 60px rgba(0,0,0,.3)}
+.modal-box h3{font-size:24px;margin-bottom:6px}
+.modal-box p{color:var(--muted);font-size:14.5px;margin-bottom:14px}
+.bubble{background:#dcf8c6;border-radius:14px 14px 4px 14px;padding:14px;font-size:14px;white-space:pre-wrap;margin-bottom:18px;color:#1d2b1f}
+.modal-box .btns{display:flex;gap:10px;flex-wrap:wrap}
+@media(max-width:860px){.hero-grid,.day,.menu,.info-grid{grid-template-columns:1fr}.nav ul{display:none}.day-art{font-size:80px}}
+</style>
+</head>
+<body>
+<div class="demo-badge">🧪 Proyecto de muestra · Negocio ficticio · Diseñado por Kevin Campos · <a href="../../index.html">Ver portafolio</a></div>
+
+<header><div class="wrap nav">
+  <a href="#" class="logo"><i>🍳</i>Soda La Esquina</a>
+  <ul><li><a href="#menu">Menú</a></li><li><a href="#dia">Plato del día</a></li><li><a href="#visitenos">Visítenos</a></li></ul>
+  <a href="#menu" class="btn btn-o">Pedir express</a>
+</div></header>
+
+<section class="hero"><div class="wrap hero-grid">
+  <div>
+    <span class="tag">🇨🇷 Comida casera tica desde 2009</span>
+    <h1>Sabor de casa, <span>como el de abuela</span></h1>
+    <p>Casados, gallo pinto, olla de carne y los mejores fresquitos naturales de Grecia. Coma aquí o pida express a su casa u oficina.</p>
+    <div class="ctas"><a href="#menu" class="btn btn-o">🛵 Ver menú y pedir</a><a href="#visitenos" class="btn btn-line">📍 Cómo llegar</a></div>
+  </div>
+  <div style="position:relative">
+    <div class="plate"><span class="food f1">🍚</span><span class="food f2">🫘</span><span class="food f3">🍌</span><span class="food f4">🥗</span><span class="food f5">🍗</span></div>
+    <div class="sticker s1">⭐ Casado completo</div>
+    <div class="sticker s2">🥤 Fresco incluido</div>
+  </div>
+</div></section>
+
+<div class="strip"><div>🍛 Casados &nbsp;•&nbsp; 🥚 Desayunos típicos &nbsp;•&nbsp; 🍲 Olla de carne los sábados &nbsp;•&nbsp; 🥤 Frescos naturales &nbsp;•&nbsp; 🛵 Express en Grecia centro &nbsp;•&nbsp; 💳 SINPE Móvil y tarjeta &nbsp;•&nbsp; 🍛 Casados &nbsp;•&nbsp; 🥚 Desayunos típicos &nbsp;•&nbsp; 🍲 Olla de carne los sábados &nbsp;•&nbsp; 🥤 Frescos naturales &nbsp;•&nbsp; 🛵 Express en Grecia centro &nbsp;•&nbsp; 💳 SINPE Móvil y tarjeta &nbsp;•&nbsp;</div></div>
+
+<section id="dia"><div class="wrap">
+  <div class="day">
+    <div>
+      <small style="color:var(--orange-d);font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:12.5px" id="dayName">Plato del día</small>
+      <h3 id="dayDish">Casado con pollo en salsa</h3>
+      <div class="price" id="dayPrice">₡3 200</div>
+      <ul id="dayList"><li>Arroz y frijoles</li><li>Plátano maduro</li><li>Ensalada fresca</li><li>Fresco natural incluido</li></ul>
+      <button class="btn btn-o" onclick="addById('dia')">➕ Agregar al pedido</button>
+    </div>
+    <div class="day-art" id="dayArt">🍗</div>
+  </div>
+
+  <div class="head" id="menu"><small>Nuestro menú</small><h2>¿Qué se le antoja hoy?</h2><p>Agregue platos y su pedido se arma solito para enviarlo por WhatsApp.</p></div>
+  <div class="tabs" id="tabs">
+    <button class="tab on" data-c="all">Todo</button><button class="tab" data-c="des">Desayunos</button><button class="tab" data-c="alm">Almuerzos</button><button class="tab" data-c="beb">Bebidas</button>
+  </div>
+  <div class="menu" id="menuGrid"></div>
+  <div class="cart" id="cart"><div><b id="cartTotal">₡0</b><div style="font-size:13.5px;opacity:.8" id="cartCount">0 platos</div></div><button class="btn btn-g" onclick="sendOrder()">Enviar pedido por WhatsApp →</button></div>
+</div></section>
+
+<section id="visitenos" style="background:var(--cream2)"><div class="wrap">
+  <div class="head"><small>Visítenos</small><h2>Lo esperamos con el cafecito listo</h2></div>
+  <div class="info-grid">
+    <div class="card"><div class="ic">🕐</div><h3>Horario</h3><table><tr><td>Lunes a viernes</td><td>6:30–17:00</td></tr><tr><td>Sábado</td><td>7:00–15:00</td></tr><tr><td>Domingo</td><td>Cerrado</td></tr></table></div>
+    <div class="card"><div class="ic">📍</div><h3>Ubicación</h3><p>Grecia centro, Alajuela. A una cuadra del parque central (dirección de muestra).</p></div>
+    <div class="card"><div class="ic">🛵</div><h3>Express</h3><p>Entregas en Grecia centro y alrededores. Pago con SINPE Móvil, tarjeta o efectivo.</p></div>
+  </div>
+  <div class="map"><iframe src="https://maps.google.com/maps?q=Parque%20Central%20Grecia%20Alajuela&z=16&output=embed" loading="lazy" title="Mapa"></iframe></div>
+</div></section>
+
+<footer>© Soda La Esquina (negocio ficticio) · Página de muestra hecha por <a href="../../index.html">Kevin Campos</a></footer>
+
+<div class="modal" id="modal"><div class="modal-box">
+  <h3>¡Así funciona! 🎉</h3>
+  <p>En la página real, este mensaje le llega directo al WhatsApp del negocio:</p>
+  <div class="bubble" id="bubble"></div>
+  <div class="btns"><a class="btn btn-o" id="wantBtn" target="_blank" rel="noopener">Quiero una página así</a><button class="btn btn-line" onclick="closeModal()">Cerrar</button></div>
+</div></div>
+
+<script>
+const KEVIN_WA="50670323812";
+const items=[
+ {id:"gp",c:"des",n:"Gallo pinto completo",d:"Con huevo, natilla, plátano y tortilla",p:2500,e:"🍳"},
+ {id:"pc",c:"des",n:"Pinto con carne en salsa",d:"Para empezar el día con fuerza",p:2900,e:"🥩"},
+ {id:"tc",c:"des",n:"Tortilla con queso",d:"Tortilla palmeada recién hecha",p:1500,e:"🫓"},
+ {id:"cp",c:"alm",n:"Casado de pollo",d:"Arroz, frijoles, plátano, ensalada y fresco",p:3200,e:"🍗"},
+ {id:"cr",c:"alm",n:"Casado de res",d:"Bistec encebollado con todos los acompañamientos",p:3600,e:"🥩"},
+ {id:"cpe",c:"alm",n:"Casado de pescado",d:"Filete empanizado con ensalada",p:3800,e:"🐟"},
+ {id:"ac",c:"alm",n:"Arroz con pollo",d:"Con papas tostadas y ensalada",p:3000,e:"🍛"},
+ {id:"oc",c:"alm",n:"Olla de carne (sábados)",d:"Con yuca, chayote, elote y arroz aparte",p:3900,e:"🍲"},
+ {id:"fn",c:"beb",n:"Fresco natural",d:"Cas, mora, piña o tamarindo",p:900,e:"🥤"},
+ {id:"cf",c:"beb",n:"Café chorreado",d:"Café de altura de la zona",p:700,e:"☕"},
+ {id:"dia",c:"x",n:"Plato del día",d:"",p:3200,e:"⭐"}
+];
+const fmt=n=>"₡"+n.toLocaleString("es-CR").replace(/,/g," ");
+const cart={};
+const grid=document.getElementById("menuGrid");
+grid.innerHTML=items.filter(i=>i.c!=="x").map(i=>`<div class="item" data-c="${i.c}"><div class="em">${i.e}</div><div class="info"><h4>${i.n}</h4><p>${i.d}</p><div class="qty"><button onclick="chg('${i.id}',-1)">−</button><span id="q-${i.id}">0</span><button onclick="chg('${i.id}',1)">+</button></div></div><div class="pr">${fmt(i.p)}</div></div>`).join("");
+document.getElementById("tabs").onclick=e=>{const b=e.target.closest(".tab");if(!b)return;document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("on",t===b));document.querySelectorAll(".item").forEach(i=>i.classList.toggle("hide",b.dataset.c!=="all"&&i.dataset.c!==b.dataset.c))};
+function chg(id,d){cart[id]=Math.max(0,(cart[id]||0)+d);const q=document.getElementById("q-"+id);if(q)q.textContent=cart[id];render()}
+function addById(id){chg(id,1);document.getElementById("cart").scrollIntoView({behavior:"smooth",block:"center"})}
+function render(){let t=0,c=0;for(const[id,q]of Object.entries(cart)){const i=items.find(x=>x.id===id);t+=i.p*q;c+=q}document.getElementById("cartTotal").textContent=fmt(t);document.getElementById("cartCount").textContent=c+(c===1?" plato":" platos");document.getElementById("cart").classList.toggle("show",c>0)}
+function sendOrder(){let t=0;const lines=Object.entries(cart).filter(([,q])=>q>0).map(([id,q])=>{const i=items.find(x=>x.id===id);t+=i.p*q;return `• ${q} x ${i.n}`});showDemo(`Hola Soda La Esquina 👋 Quiero hacer un pedido express:\n\n${lines.join("\n")}\n\nTotal: ${fmt(t)}\nDirección: ...`)}
+function showDemo(msg){document.getElementById("bubble").textContent=msg;document.getElementById("wantBtn").href=`https://wa.me/${KEVIN_WA}?text=${encodeURIComponent("Hola Kevin, vi la demo de la soda y me interesa una página así para mi negocio.")}`;document.getElementById("modal").classList.add("open")}
+function closeModal(){document.getElementById("modal").classList.remove("open")}
+document.getElementById("modal").onclick=e=>{if(e.target.id==="modal")closeModal()};
+// Plato del día según el día de la semana
+const dias=[null,["Lunes","Casado con pollo en salsa","🍗",3200],["Martes","Arroz con camarones","🍤",3800],["Miércoles","Casado de chuleta","🥩",3500],["Jueves","Sopa negra con huevo","🍲",2900],["Viernes","Casado de pescado","🐟",3800],["Sábado","Olla de carne","🍲",3900],null];
+const d=dias[new Date().getDay()];
+if(d){document.getElementById("dayName").textContent="Plato del día · "+d[0];document.getElementById("dayDish").textContent=d[1];document.getElementById("dayArt").textContent=d[2];document.getElementById("dayPrice").textContent=fmt(d[3]);items.find(i=>i.id==="dia").n="Plato del día: "+d[1];items.find(i=>i.id==="dia").p=d[3]}
+</script>
+</body>
+</html>

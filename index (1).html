@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veterinaria Patitas | Clínica veterinaria en Grecia (demo)</title>
+<meta name="description" content="Demo de página web para una veterinaria: servicios, citas por WhatsApp, emergencias y consejos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--teal:#14b8a6;--teal-d:#0f8f82;--mint:#e6faf6;--peach:#ffe8dc;--coral:#ff7a59;--ink:#183b45;--muted:#5d7a83;--line:#d8eeea;--bg:#f7fdfc}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:Nunito,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+h1,h2,h3{font-weight:900;line-height:1.1;letter-spacing:-.5px}
+a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+.demo-badge{background:var(--ink);color:#cfeee8;font-size:13px;text-align:center;padding:8px}
+.demo-badge a{color:#7ff0dd;font-weight:800;text-decoration:underline}
+.emer{background:var(--coral);color:#fff;font-weight:800;font-size:14px;text-align:center;padding:8px}
+header{position:sticky;top:0;z-index:40;background:rgba(247,253,252,.9);backdrop-filter:blur(10px)}
+.nav{display:flex;justify-content:space-between;align-items:center;height:74px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:24px}
+.logo i{font-style:normal;width:46px;height:46px;border-radius:16px;background:var(--teal);display:grid;place-items:center;font-size:24px;transform:rotate(-8deg)}
+.logo span{color:var(--teal)}
+.nav ul{display:flex;gap:26px;list-style:none;font-weight:700}
+.nav ul a:hover{color:var(--teal)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;border-radius:16px;font-weight:800;border:0;transition:transform .15s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-t{background:var(--teal);color:#fff;box-shadow:0 10px 22px rgba(20,184,166,.3)}
+.btn-c{background:var(--coral);color:#fff}
+.btn-w{background:#fff;color:var(--ink);border:2px solid var(--line)}
+.hero{padding:60px 0 90px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+.chip{display:inline-flex;gap:8px;align-items:center;background:var(--mint);color:var(--teal-d);font-weight:800;padding:8px 16px;border-radius:999px;font-size:14px;margin-bottom:20px}
+.hero h1{font-size:clamp(40px,5.6vw,66px);margin-bottom:18px}
+.hero h1 span{color:var(--teal);position:relative}
+.hero h1 span::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:12px;background:var(--peach);z-index:-1;border-radius:6px}
+.hero p{font-size:18.5px;color:var(--muted);max-width:520px;margin-bottom:28px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.blob{position:relative;aspect-ratio:1;max-width:460px;margin:0 auto;width:100%}
+.blob .b1{position:absolute;inset:6%;background:linear-gradient(140deg,var(--teal),#5eead4);border-radius:42% 58% 63% 37%/45% 40% 60% 55%;animation:morph 9s ease-in-out infinite}
+@keyframes morph{50%{border-radius:58% 42% 37% 63%/55% 60% 40% 45%}}
+.blob .pets{position:absolute;inset:0;display:grid;place-items:center;font-size:clamp(110px,15vw,170px)}
+.float{position:absolute;background:#fff;border-radius:18px;padding:12px 16px;box-shadow:0 16px 36px rgba(24,59,69,.14);font-weight:800;font-size:14px;display:flex;align-items:center;gap:10px;animation:fl 5s ease-in-out infinite}
+.float small{display:block;font-weight:600;color:var(--muted);font-size:12px}
+.fa{top:8%;left:-2%}.fb{bottom:10%;right:-2%;animation-delay:-2.5s}
+@keyframes fl{50%{transform:translateY(-10px)}}
+section{padding:90px 0}
+.head{text-align:center;max-width:640px;margin:0 auto 46px}
+.head small{color:var(--teal-d);font-weight:900;letter-spacing:2px;text-transform:uppercase;font-size:13px}
+.head h2{font-size:clamp(32px,4.2vw,46px);margin:8px 0 10px}
+.head p{color:var(--muted);font-size:17px}
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.s{background:#fff;border:2px solid var(--line);border-radius:26px;padding:28px;transition:all .25s}
+.s:hover{border-color:var(--teal);transform:translateY(-5px);box-shadow:0 18px 36px rgba(20,184,166,.12)}
+.s .ic{width:62px;height:62px;border-radius:20px;background:var(--mint);display:grid;place-items:center;font-size:32px;margin-bottom:16px}
+.s:nth-child(even) .ic{background:var(--peach)}
+.s h3{font-size:21px;margin-bottom:6px}.s p{color:var(--muted)}
+.banner{background:linear-gradient(120deg,var(--coral),#ff9f7a);border-radius:30px;color:#fff;padding:40px 46px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.banner h3{font-size:30px}.banner p{opacity:.92;max-width:520px}
+.cita{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.form{background:#fff;border-radius:30px;padding:34px;box-shadow:0 24px 50px rgba(24,59,69,.1);border:2px solid var(--line)}
+.form h3{font-size:26px;margin-bottom:18px}
+.field{margin-bottom:14px}
+.field label{display:block;font-weight:800;font-size:14px;margin-bottom:6px}
+.field input,.field textarea{width:100%;border:2px solid var(--line);border-radius:14px;padding:12px 14px;font:inherit;background:var(--bg)}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--teal)}
+.species{display:flex;gap:8px;flex-wrap:wrap}
+.sp{border:2px solid var(--line);background:#fff;border-radius:14px;padding:9px 14px;font-weight:800}
+.sp.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form .btn{width:100%}
+.steps{display:grid;gap:18px}
+.st{display:flex;gap:16px;align-items:flex-start}
+.st b{flex-shrink:0;width:44px;height:44px;border-radius:14px;background:var(--teal);color:#fff;display:grid;place-items:center;font-size:18px}
+.st h4{font-size:18px}.st p{color:var(--muted)}
+.tips{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tip{background:#fff;border-radius:24px;overflow:hidden;border:2px solid var(--line)}
+.tip .art{height:150px;display:grid;place-items:center;font-size:70px;background:var(--mint)}
+.tip:nth-child(2) .art{background:var(--peach)}
+.tip .b{padding:22px}.tip small{color:var(--teal-d);font-weight:900;text-transform:uppercase;font-size:12px;letter-spacing:1px}
+.tip h3{font-size:19px;margin:6px 0}.tip p{color:var(--muted);font-size:15px}
+.faq{max-width:800px;margin:0 auto;display:grid;gap:12px}
+.q{background:#fff;border:2px solid var(--line);border-radius:20px;overflow:hidden}
+.q button{width:100%;background:none;border:0;padding:20px 24px;text-align:left;font-weight:800;font-size:17px;display:flex;justify-content:space-between;gap:16px;color:var(--ink)}
+.q button i{font-style:normal;color:var(--teal);font-size:22px;transition:transform .3s}
+.q.open button i{transform:rotate(45deg)}
+.q .a{max-height:0;overflow:hidden;transition:max-height .35s}
+.q .a p{padding:0 24px 20px;color:var(--muted)}
+.loc{display:grid;grid-template-columns:1fr 1.2fr;gap:24px}
+.card{background:#fff;border:2px solid var(--line);border-radius:26px;padding:30px}
+.card table{width:100%}.card td{padding:7px 0}.card td:last-child{text-align:right;font-weight:800}
+.map{border-radius:26px;overflow:hidden;min-height:380px;border:2px solid var(--line)}
+.map iframe{width:100%;height:100%;min-height:380px;border:0}
+footer{background:var(--ink);color:#a9c9c4;text-align:center;padding:34px 0;font-size:14px}
+footer a{color:#7ff0dd;font-weight:800}
+.modal{position:fixed;inset:0;background:rgba(24,59,69,.55);display:none;place-items:center;z-index:100;padding:20px}
+.modal.open{display:grid}
+.mb{background:#fff;border-radius:26px;max-width:440px;width:100%;padding:28px}
+.mb h3{font-size:26px}.mb p{color:var(--muted);margin:6px 0 14px;font-size:15px}
+.bubble{background:#dcf8c6;border-radius:16px 16px 4px 16px;padding:14px;font-size:14.5px;white-space:pre-wrap;margin-bottom:18px}
+.mb .btns{display:flex;gap:10px;flex-wrap:wrap}
+@media(max-width:900px){.hero-grid,.cita,.loc{grid-template-columns:1fr}.svc,.tips{grid-template-columns:1fr 1fr}.nav ul{display:none}}
+@media(max-width:600px){.svc,.tips,.f2{grid-template-columns:1fr}.nav .btn{display:none}.banner{padding:30px}}
+</style>
+</head>
+<body>
+<div class="demo-badge">🧪 Proyecto de muestra · Negocio ficticio · Diseñado por Kevin Campos · <a href="../../index.html">Ver portafolio</a></div>
+<div class="emer">🚨 Emergencias 24/7 · Llame al 8888-0000 (número de ejemplo)</div>
+<header><div class="wrap nav">
+  <a href="#" class="logo"><i>🐾</i>Veterinaria <span>Patitas</span></a>
+  <ul><li><a href="#servicios">Servicios</a></li><li><a href="#cita">Agendar cita</a></li><li><a href="#consejos">Consejos</a></li><li><a href="#ubicacion">Ubicación</a></li></ul>
+  <a href="#cita" class="btn btn-t">Agendar cita</a>
+</div></header>
+
+<section class="hero"><div class="wrap hero-grid">
+  <div>
+    <span class="chip">💚 Cuidamos a su familia peluda</span>
+    <h1>Salud y cariño para <span>sus mascotas</span></h1>
+    <p>Consultas, vacunas, cirugías, laboratorio y estética en un solo lugar en Grecia. Atención con paciencia y mucho amor.</p>
+    <div class="ctas"><a href="#cita" class="btn btn-t">📅 Agendar cita</a><a href="#servicios" class="btn btn-w">Ver servicios</a></div>
+  </div>
+  <div class="blob"><div class="b1"></div><div class="pets">🐶</div>
+    <div class="float fa">💉<div>Vacunas al día<small>Perros y gatos</small></div></div>
+    <div class="float fb">🏥<div>Urgencias 24/7<small>Siempre disponibles</small></div></div>
+  </div>
+</div></section>
+
+<section id="servicios" style="padding-top:20px"><div class="wrap">
+  <div class="head"><small>Servicios</small><h2>Todo lo que su mascota necesita</h2><p>Desde la primera vacuna hasta la vejez, estamos con ustedes.</p></div>
+  <div class="svc">
+    <div class="s"><div class="ic">🩺</div><h3>Consulta general</h3><p>Revisión completa, diagnóstico y tratamiento.</p></div>
+    <div class="s"><div class="ic">💉</div><h3>Vacunación</h3><p>Planes de vacunas y desparasitación para cachorros y adultos.</p></div>
+    <div class="s"><div class="ic">🔬</div><h3>Laboratorio</h3><p>Exámenes de sangre con resultados el mismo día.</p></div>
+    <div class="s"><div class="ic">🏥</div><h3>Cirugía</h3><p>Castraciones y cirugías con monitoreo profesional.</p></div>
+    <div class="s"><div class="ic">🦷</div><h3>Limpieza dental</h3><p>Salud bucal para prevenir enfermedades.</p></div>
+    <div class="s"><div class="ic">🛁</div><h3>Estética</h3><p>Baño, corte y uñas con productos especiales.</p></div>
+  </div>
+</div></section>
+
+<div class="wrap"><div class="banner">
+  <div><h3>¿Es una emergencia?</h3><p>Si su mascota tuvo un accidente, comió algo tóxico o está muy decaída, llámenos de inmediato. Atendemos 24/7.</p></div>
+  <a href="#" class="btn btn-w" onclick="showDemo('📞 En la página real, este botón llama directo al número de emergencias de la veterinaria.');return false">📞 Llamar ahora</a>
+</div></div>
+
+<section id="cita"><div class="wrap cita">
+  <div>
+    <div class="head" style="text-align:left;margin:0 0 30px"><small>Agendar cita</small><h2>Agende en menos de un minuto</h2><p>Complete el formulario y le confirmamos por WhatsApp.</p></div>
+    <div class="steps">
+      <div class="st"><b>1</b><div><h4>Cuéntenos sobre su mascota</h4><p>Nombre, especie y el motivo de la visita.</p></div></div>
+      <div class="st"><b>2</b><div><h4>Elija el día</h4><p>Le proponemos la hora más cercana disponible.</p></div></div>
+      <div class="st"><b>3</b><div><h4>Confirmamos por WhatsApp</h4><p>Y le recordamos la cita un día antes.</p></div></div>
+    </div>
+  </div>
+  <form class="form" id="citaForm">
+    <h3>🐾 Datos de la cita</h3>
+    <div class="f2"><div class="field"><label>Su nombre</label><input id="cn" required placeholder="Nombre"></div><div class="field"><label>Nombre de la mascota</label><input id="cm" required placeholder="Ej: Firulais"></div></div>
+    <div class="field"><label>Especie</label><div class="species" id="species"><button type="button" class="sp on">🐶 Perro</button><button type="button" class="sp">🐱 Gato</button><button type="button" class="sp">🐰 Conejo</button><button type="button" class="sp">🦜 Otro</button></div></div>
+    <div class="field"><label>Fecha preferida</label><input type="date" id="cd" required></div>
+    <div class="field"><label>Motivo</label><textarea id="cmo" rows="3" required placeholder="Ej: vacunas, no quiere comer, revisión..."></textarea></div>
+    <button class="btn btn-t" type="submit">Solicitar cita por WhatsApp</button>
+  </form>
+</div></section>
+
+<section id="consejos" style="background:#fff"><div class="wrap">
+  <div class="head"><small>Consejos</small><h2>Tips para una mascota feliz</h2></div>
+  <div class="tips">
+    <div class="tip"><div class="art">🦴</div><div class="b"><small>Alimentación</small><h3>Ojo con la comida de la mesa</h3><p>Chocolate, uvas y cebolla son tóxicos para perros. Mejor golosinas para mascotas.</p></div></div>
+    <div class="tip"><div class="art">🌡️</div><div class="b"><small>Prevención</small><h3>Vacunas y desparasitación</h3><p>Mantener el calendario al día previene enfermedades graves y costosas.</p></div></div>
+    <div class="tip"><div class="art">🐱</div><div class="b"><small>Gatos</small><h3>Agua fresca siempre</h3><p>Los gatos toman poca agua: una fuente o varios platos ayudan a sus riñones.</p></div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="head"><small>Preguntas frecuentes</small><h2>Resolvemos sus dudas</h2></div>
+  <div class="faq" id="faq"></div>
+</div></section>
+
+<section id="ubicacion" style="padding-top:0"><div class="wrap">
+  <div class="head"><small>Ubicación</small><h2>Visítenos en Grecia</h2></div>
+  <div class="loc">
+    <div class="card"><h3 style="margin-bottom:14px">🕐 Horario</h3><table><tr><td>Lunes a viernes</td><td>8:00 – 19:00</td></tr><tr><td>Sábado</td><td>8:00 – 16:00</td></tr><tr><td>Domingo</td><td>Solo emergencias</td></tr></table>
+      <p style="color:var(--muted);margin:18px 0">📍 Grecia centro, Alajuela (dirección de muestra). Parqueo para clientes.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-t" href="https://www.google.com/maps/search/?api=1&query=Grecia+Alajuela" target="_blank" rel="noopener">Google Maps</a><a class="btn btn-w" href="https://waze.com/ul?q=Grecia%20Alajuela" target="_blank" rel="noopener">Waze</a></div></div>
+    <div class="map"><iframe src="https://maps.google.com/maps?q=Grecia%20Alajuela%20Costa%20Rica&z=15&output=embed" loading="lazy" title="Mapa"></iframe></div>
+  </div>
+</div></section>
+
+<footer>© Veterinaria Patitas (negocio ficticio) · Página de muestra hecha por <a href="../../index.html">Kevin Campos</a></footer>
+
+<div class="modal" id="modal"><div class="mb">
+  <h3>¡Así funciona! 🐾</h3>
+  <p>En la página real, esto le llega directo al WhatsApp de la veterinaria:</p>
+  <div class="bubble" id="bubble"></div>
+  <div class="btns"><a class="btn btn-t" id="wantBtn" target="_blank" rel="noopener">Quiero una página así</a><button class="btn btn-w" onclick="closeModal()">Cerrar</button></div>
+</div></div>
+
+<script>
+const KEVIN_WA="50670323812";
+const faqs=[["¿Necesito cita o puedo llegar directo?","Puede llegar directo, pero con cita lo atendemos sin espera. Las emergencias siempre tienen prioridad."],["¿Cada cuánto debo vacunar a mi mascota?","Los cachorros necesitan varias dosis en sus primeros meses y luego refuerzos anuales. En consulta le armamos el calendario."],["¿Atienden gatos y otras mascotas?","Sí: perros, gatos, conejos y otras mascotas pequeñas."],["¿Qué formas de pago aceptan?","Efectivo, tarjeta y SINPE Móvil."]];
+const fq=document.getElementById("faq");
+fq.innerHTML=faqs.map(([q,a])=>`<div class="q"><button>${q}<i>+</i></button><div class="a"><p>${a}</p></div></div>`).join("");
+fq.onclick=e=>{const b=e.target.closest("button");if(!b)return;const q=b.parentElement,a=q.querySelector(".a"),o=q.classList.toggle("open");a.style.maxHeight=o?a.scrollHeight+"px":0};
+let especie="🐶 Perro";
+document.getElementById("species").onclick=e=>{const b=e.target.closest(".sp");if(!b)return;document.querySelectorAll(".sp").forEach(s=>s.classList.toggle("on",s===b));especie=b.textContent};
+const cd=document.getElementById("cd");cd.valueAsDate=new Date();cd.min=cd.value;
+document.getElementById("citaForm").onsubmit=e=>{e.preventDefault();const v=id=>document.getElementById(id).value.trim();
+ const f=new Date(cd.value+"T12:00").toLocaleDateString("es-CR",{weekday:"long",day:"numeric",month:"long"});
+ showDemo(`Hola Veterinaria Patitas 🐾 Quisiera agendar una cita:\n\n• Dueño: ${v("cn")}\n• Mascota: ${v("cm")} (${especie})\n• Fecha preferida: ${f}\n• Motivo: ${v("cmo")}`)};
+function showDemo(msg){document.getElementById("bubble").textContent=msg;document.getElementById("wantBtn").href=`https://wa.me/${KEVIN_WA}?text=${encodeURIComponent("Hola Kevin, vi la demo de la veterinaria y me interesa una página así para mi negocio.")}`;document.getElementById("modal").classList.add("open")}
+function closeModal(){document.getElementById("modal").classList.remove("open")}
+document.getElementById("modal").onclick=e=>{if(e.target.id==="modal")closeModal()};
+</script>
+</body>
+</html>

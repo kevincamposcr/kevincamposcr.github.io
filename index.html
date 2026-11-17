@@ -150,9 +150,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
  .menu{display:none;position:absolute;top:74px;left:0;right:0;background:#fff;flex-direction:column;padding:22px;gap:16px;border-bottom:1px solid var(--line)}.menu.open{display:flex}.burger{display:grid;place-items:center}.photo{max-width:380px}}
 @media(max-width:640px){.works,.feat,.plans,.steps,.creds-g{grid-template-columns:1fr}.nav .btn{display:none}.cta{padding:40px 24px}section{padding:76px 0}.stack{height:300px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}.rv{opacity:1;transform:none}}
+.i{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;vertical-align:-.15em}
+.creds .ic{color:var(--lime)}
+.f .ic{color:var(--violet)}
+.mini-proof span::before,.terms span::before{content:"✓";color:#16a34a;font-weight:800}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 8 5-3 5 3-1.5-8"/></symbol><symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 7h12l1 14H5L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></symbol><symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.6A8.4 8.4 0 1 1 21 11.5z"/></symbol><symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol><symbol id="i-grad" viewBox="0 0 24 24"><path d="m2 9 10-5 10 5-10 5-10-5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></symbol><symbol id="i-mobile" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6 7-12a7 7 0 1 0-14 0c0 6 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol><symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></symbol><symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol></svg>
 
 <!-- ================================================================
   EDITE AQUÍ RÁPIDO:
@@ -178,9 +183,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
     <p>Diseño páginas modernas, rápidas y fáciles de usar desde el celular, para negocios de Grecia y todo Costa Rica. Con WhatsApp, Google Maps, catálogo o reservas en línea.</p>
     <div class="ctas">
       <a href="#trabajos" class="btn btn-ink">Ver mis trabajos →</a>
-      <a href="#" class="btn btn-wa" data-wa="Hola Kevin, quisiera una demo gratis de una página para mi negocio.">💬 Pedir demo gratis</a>
+      <a href="#" class="btn btn-wa" data-wa="Hola Kevin, quisiera una demo gratis de una página para mi negocio.">Pedir demo gratis</a>
     </div>
-    <div class="mini-proof"><span>✅ Vea su página antes de pagar</span><span>📱 100% adaptada a celular</span><span>🇨🇷 Atención local</span></div>
+    <div class="mini-proof"><span>Vea su página antes de pagar</span><span>100% adaptada a celular</span><span>Atención local</span></div>
   </div>
   <div class="stack rv" aria-hidden="true">
     <div class="browser b2"><div class="bar"><i></i><i></i><i></i></div><div class="view"><iframe src="demos/barberia-norte/index.html" loading="lazy" tabindex="-1" title=""></iframe></div></div>
@@ -190,27 +195,27 @@ footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 </div></section>
 
 <div class="creds"><div class="wrap creds-g">
-  <div class="cr rv"><div class="ic">🌏</div><div><b>Top 20 mundial</b><small>WorldSkills Shanghái 2026</small></div></div>
-  <div class="cr rv"><div class="ic">🏅</div><div><b>4.º de América</b><small>WorldSkills Américas, Chile 2025</small></div></div>
-  <div class="cr rv"><div class="ic">🥇</div><div><b>1.º nacional 2025</b><small>Admin. de Sistemas de Redes TI</small></div></div>
-  <div class="cr rv"><div class="ic">🎓</div><div><b>Egresado del INA</b><small>Tecnologías de información</small></div></div>
+  <div class="cr rv"><div class="ic"><svg class="i" aria-hidden="true"><use href="#i-globe"/></svg></div><div><b>Top 20 mundial</b><small>WorldSkills Shanghái 2026</small></div></div>
+  <div class="cr rv"><div class="ic"><svg class="i" aria-hidden="true"><use href="#i-award"/></svg></div><div><b>4.º de América</b><small>WorldSkills Américas, Chile 2025</small></div></div>
+  <div class="cr rv"><div class="ic"><svg class="i" aria-hidden="true"><use href="#i-trophy"/></svg></div><div><b>1.º nacional 2025</b><small>Admin. de Sistemas de Redes TI</small></div></div>
+  <div class="cr rv"><div class="ic"><svg class="i" aria-hidden="true"><use href="#i-grad"/></svg></div><div><b>Egresado del INA</b><small>Tecnologías de información</small></div></div>
 </div></div>
 
 <section id="trabajos"><div class="wrap">
   <div class="head rv"><span class="kick">Trabajos</span><h2>Proyectos de muestra</h2><p>Cada página está pensada para un tipo de negocio distinto. Ábralas y pruébelas: los formularios y botones funcionan como en una página real.</p></div>
   <div class="works" id="works"></div>
-  <p class="note rv">* Son negocios ficticios creados para mostrar mi trabajo. Su negocio podría ser el primero de esta lista 😉</p>
+  <p class="note rv">* Son negocios ficticios creados para mostrar mi trabajo. Su negocio podría ser el primero de esta lista </p>
 </div></section>
 
 <section style="padding-top:0"><div class="wrap">
   <div class="head c rv"><span class="kick">Qué incluye</span><h2>Todo lo que su página necesita</h2></div>
   <div class="feat">
-    <div class="f rv"><div class="ic">💬</div><h4>Botones de WhatsApp</h4><p>Sus clientes le escriben con un toque, con el mensaje ya armado.</p></div>
-    <div class="f rv"><div class="ic">📍</div><h4>Mapa, Google Maps y Waze</h4><p>Que lleguen sin perderse, con la ruta a un clic.</p></div>
-    <div class="f rv"><div class="ic">📱</div><h4>Perfecta en celular</h4><p>La mayoría de sus clientes la verán desde el teléfono.</p></div>
-    <div class="f rv"><div class="ic">🔎</div><h4>Lista para Google</h4><p>Configurada para que su negocio aparezca en las búsquedas.</p></div>
-    <div class="f rv"><div class="ic">⚡</div><h4>Rápida y segura</h4><p>Carga en segundos y con candado de seguridad (HTTPS).</p></div>
-    <div class="f rv"><div class="ic">🛒</div><h4>Catálogo, menú o reservas</h4><p>Según su negocio: productos, pedidos o citas en línea.</p></div>
+    <div class="f rv"><div class="ic"><svg class="i" aria-hidden="true"><use href="#i-chat"/></svg></div><h4>Botones de WhatsApp</h4><p>Sus clientes le escriben con un toque, con el mensaje ya armado.</p></div>
+    <div class="f rv"><div class="ic"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg></div><h4>Mapa, Google Maps y Waze</h4><p>Que lleguen sin perderse, con la ruta a un clic.</p></div>
+    <div class="f rv"><div class="ic"><svg class="i" aria-hidden="true"><use href="#i-mobile"/></svg></div><h4>Perfecta en celular</h4><p>La mayoría de sus clientes la verán desde el teléfono.</p></div>
+    <div class="f rv"><div class="ic"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg></div><h4>Lista para Google</h4><p>Configurada para que su negocio aparezca en las búsquedas.</p></div>
+    <div class="f rv"><div class="ic"><svg class="i" aria-hidden="true"><use href="#i-zap"/></svg></div><h4>Rápida y segura</h4><p>Carga en segundos y con candado de seguridad (HTTPS).</p></div>
+    <div class="f rv"><div class="ic"><svg class="i" aria-hidden="true"><use href="#i-bag"/></svg></div><h4>Catálogo, menú o reservas</h4><p>Según su negocio: productos, pedidos o citas en línea.</p></div>
   </div>
 </div></section>
 
@@ -220,14 +225,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
     <div class="plan rv"><h3>Página básica</h3><p class="muted">Ideal para empezar a tener presencia en internet.</p><div class="price">₡75 000 <small>pago único</small></div>
       <ul><li>Página de una sección completa</li><li>WhatsApp, Facebook e Instagram</li><li>Mapa, horario y contacto</li><li>Adaptada a celular</li><li>Publicación incluida</li></ul>
       <a href="#" class="btn btn-ghost" data-wa="Hola Kevin, me interesa el paquete de Página básica.">Elegir básica</a></div>
-    <div class="plan hot rv"><span class="badge">⭐ Más pedido</span><h3>Página negocio</h3><p class="muted">Para negocios que quieren vender y recibir pedidos.</p><div class="price">₡150 000 <small>pago único</small></div>
+    <div class="plan hot rv"><span class="badge">Más pedido</span><h3>Página negocio</h3><p class="muted">Para negocios que quieren vender y recibir pedidos.</p><div class="price">₡150 000 <small>pago único</small></div>
       <ul><li>Todo lo de la básica</li><li>Catálogo, menú o servicios con precios</li><li>Formulario de pedidos, citas o cotizaciones</li><li>Preguntas frecuentes y galería</li><li>Opción bilingüe (español / inglés)</li></ul>
       <a href="#" class="btn btn-lime" data-wa="Hola Kevin, me interesa el paquete de Página negocio.">Elegir negocio</a></div>
     <div class="plan rv"><h3>Mantenimiento</h3><p class="muted">Su página siempre al día, sin preocuparse de nada.</p><div class="price">₡12 000 <small>/ mes</small></div>
       <ul><li>Hasta 3 cambios pequeños al mes</li><li>Actualizar precios, horarios y promos</li><li>Revisión de que todo funcione</li><li>Soporte por WhatsApp</li></ul>
       <a href="#" class="btn btn-ghost" data-wa="Hola Kevin, me interesa el plan de mantenimiento mensual.">Consultar</a></div>
   </div>
-  <div class="terms rv"><span>✅ Demo gratis antes de pagar</span><span>💳 50% al iniciar, 50% al entregar</span><span>🌐 El dominio queda a nombre suyo</span></div>
+  <div class="terms rv"><span>Demo gratis antes de pagar</span><span>50% al iniciar, 50% al entregar</span><span>El dominio queda a nombre suyo</span></div>
 </div></section>
 
 <section id="proceso"><div class="wrap">
@@ -243,14 +248,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 <section class="about" id="sobre-mi"><div class="wrap about-g">
   <div class="photo rv">KC
     <!-- <img src="foto.jpg" alt="Kevin Campos"> -->
-    <div class="tagp">📍 Grecia, Alajuela · Costa Rica</div>
+    <div class="tagp">Grecia, Alajuela · Costa Rica</div>
   </div>
   <div class="rv">
     <span class="kick">Sobre mí</span>
-    <h2>Hola, soy Kevin Campos 👋</h2>
+    <h2>Hola, soy Kevin Campos </h2>
     <p>Soy técnico en tecnologías de información egresado del INA. Representé a Costa Rica en WorldSkills en Administración de Sistemas de Redes TI: fui primer lugar nacional en 2025, cuarto de América en Chile y quedé entre los 20 mejores del mundo en Shanghái 2026.</p>
     <p>Hoy uso esa experiencia para ayudar a negocios locales a tener una presencia profesional en internet, con páginas modernas, seguras y pensadas para conseguir clientes.</p>
-    <div class="extra"><span>🌐 Páginas web</span><span>📶 Redes y Wi-Fi</span><span>🖥️ Soporte técnico</span><span>📧 Correo con dominio propio</span></div>
+    <div class="extra"><span>Páginas web</span><span>Redes y Wi-Fi</span><span>Soporte técnico</span><span>Correo con dominio propio</span></div>
   </div>
 </div></section>
 
@@ -263,7 +268,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
   <div class="cta rv">
     <h2>¿Listo para que su negocio esté en internet?</h2>
     <p>Escríbame y le preparo una demo gratis de su página. Sin compromiso.</p>
-    <a href="#" class="btn btn-lime" data-wa="Hola Kevin, quisiera una demo gratis de una página para mi negocio.">💬 Escribirme por WhatsApp</a>
+    <a href="#" class="btn btn-lime" data-wa="Hola Kevin, quisiera una demo gratis de una página para mi negocio.">Escribirme por WhatsApp</a>
   </div>
 </div></section>
 

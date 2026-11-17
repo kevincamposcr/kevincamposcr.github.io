@@ -103,45 +103,56 @@ footer a{color:#7ff0dd;font-weight:800}
 .mb .btns{display:flex;gap:10px;flex-wrap:wrap}
 @media(max-width:900px){.hero-grid,.cita,.loc{grid-template-columns:1fr}.svc,.tips{grid-template-columns:1fr 1fr}.nav ul{display:none}}
 @media(max-width:600px){.svc,.tips,.f2{grid-template-columns:1fr}.nav .btn{display:none}.banner{padding:30px}}
+.i{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;vertical-align:-.15em}
+.blob .b1{background:var(--img, none) center/cover no-repeat,linear-gradient(140deg,var(--teal),#5eead4)}
+.blob .pets{color:#fff;font-size:clamp(110px,14vw,160px)}
+.blob.has-img .pets{display:none}
+.float .i{width:30px;height:30px;color:var(--teal-d);background:var(--mint);padding:6px;border-radius:10px}
+.s .ic{color:var(--teal-d)}.s:nth-child(even) .ic{color:var(--coral)}
+.tip .art{background:var(--img, none) center/cover no-repeat,var(--mint);color:var(--teal-d);font-size:56px}
+.tip:nth-child(2) .art{background:var(--img, none) center/cover no-repeat,var(--peach);color:var(--coral)}
+.tip .art.has-img .i{display:none}
+.logo i{color:#fff}
 </style>
 </head>
 <body>
-<div class="demo-badge">🧪 Proyecto de muestra · Negocio ficticio · Diseñado por Kevin Campos · <a href="../../index.html">Ver portafolio</a></div>
-<div class="emer">🚨 Emergencias 24/7 · Llame al 8888-0000 (número de ejemplo)</div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-bowl" viewBox="0 0 24 24"><path d="M3 11h18a9 9 0 0 1-18 0zM12 3v4M8 5v2M16 5v2"/></symbol><symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 2.5s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></symbol><symbol id="i-micro" viewBox="0 0 24 24"><path d="M6 18h8M3 22h18M14 22a7 7 0 1 0 0-14h-1"/><path d="M9 14h2M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2z"/><path d="M12 6V3H8v3"/></symbol><symbol id="i-paw" viewBox="0 0 24 24"><circle cx="5.5" cy="10" r="2"/><circle cx="9.5" cy="5.5" r="2"/><circle cx="14.5" cy="5.5" r="2"/><circle cx="18.5" cy="10" r="2"/><path d="M12 12c-3 0-6 3.5-6 6 0 1.5 1.2 2.5 2.7 2.2 1.2-.3 2.1-.7 3.3-.7s2.1.4 3.3.7c1.5.3 2.7-.7 2.7-2.2 0-2.5-3-6-6-6z"/></symbol><symbol id="i-plus" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v8M8 12h8"/></symbol><symbol id="i-steth" viewBox="0 0 24 24"><path d="M5 3v6a5 5 0 0 0 10 0V3"/><path d="M10 14v2a5 5 0 0 0 10 0v-2"/><circle cx="20" cy="12" r="2"/></symbol><symbol id="i-syringe" viewBox="0 0 24 24"><path d="m18 2 4 4M17 7l3-3M19 9 9 19l-4 1 1-4L16 6l3 3zM13 9l2 2M10 12l2 2"/></symbol><symbol id="i-therm" viewBox="0 0 24 24"><path d="M14 14.8V4a2 2 0 0 0-4 0v10.8a4 4 0 1 0 4 0z"/></symbol><symbol id="i-tooth" viewBox="0 0 24 24"><path d="M7 3c-2 0-4 2-3.5 5 .4 2.5 1.5 4 1.8 7 .3 3 1 6 2.2 6 1.5 0 1.5-5 4.5-5s3 5 4.5 5c1.2 0 1.9-3 2.2-6 .3-3 1.4-4.5 1.8-7C20 5 18 3 16 3c-1.6 0-2.6 1-4 1S8.6 3 7 3z"/></symbol></svg>
+<div class="demo-badge">Proyecto de muestra · Negocio ficticio · Diseñado por Kevin Campos · <a href="../../index.html">Ver portafolio</a></div>
+<div class="emer">Emergencias 24/7 · Llame al 8888-0000 (número de ejemplo)</div>
 <header><div class="wrap nav">
-  <a href="#" class="logo"><i>🐾</i>Veterinaria <span>Patitas</span></a>
+  <a href="#" class="logo"><i><svg class="i" aria-hidden="true"><use href="#i-paw"/></svg></i>Veterinaria <span>Patitas</span></a>
   <ul><li><a href="#servicios">Servicios</a></li><li><a href="#cita">Agendar cita</a></li><li><a href="#consejos">Consejos</a></li><li><a href="#ubicacion">Ubicación</a></li></ul>
   <a href="#cita" class="btn btn-t">Agendar cita</a>
 </div></header>
 
 <section class="hero"><div class="wrap hero-grid">
   <div>
-    <span class="chip">💚 Cuidamos a su familia peluda</span>
+    <span class="chip">Cuidamos a su familia peluda</span>
     <h1>Salud y cariño para <span>sus mascotas</span></h1>
     <p>Consultas, vacunas, cirugías, laboratorio y estética en un solo lugar en Grecia. Atención con paciencia y mucho amor.</p>
-    <div class="ctas"><a href="#cita" class="btn btn-t">📅 Agendar cita</a><a href="#servicios" class="btn btn-w">Ver servicios</a></div>
+    <div class="ctas"><a href="#cita" class="btn btn-t">Agendar cita</a><a href="#servicios" class="btn btn-w">Ver servicios</a></div>
   </div>
-  <div class="blob"><div class="b1"></div><div class="pets">🐶</div>
-    <div class="float fa">💉<div>Vacunas al día<small>Perros y gatos</small></div></div>
-    <div class="float fb">🏥<div>Urgencias 24/7<small>Siempre disponibles</small></div></div>
+  <div class="blob" style="--img:url(img/hero.jpg)"><div class="b1"></div><div class="pets"><svg class="i" aria-hidden="true"><use href="#i-paw"/></svg></div>
+    <div class="float fa"><svg class="i" aria-hidden="true"><use href="#i-syringe"/></svg><div>Vacunas al día<small>Perros y gatos</small></div></div>
+    <div class="float fb"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg><div>Urgencias 24/7<small>Siempre disponibles</small></div></div>
   </div>
 </div></section>
 
 <section id="servicios" style="padding-top:20px"><div class="wrap">
   <div class="head"><small>Servicios</small><h2>Todo lo que su mascota necesita</h2><p>Desde la primera vacuna hasta la vejez, estamos con ustedes.</p></div>
   <div class="svc">
-    <div class="s"><div class="ic">🩺</div><h3>Consulta general</h3><p>Revisión completa, diagnóstico y tratamiento.</p></div>
-    <div class="s"><div class="ic">💉</div><h3>Vacunación</h3><p>Planes de vacunas y desparasitación para cachorros y adultos.</p></div>
-    <div class="s"><div class="ic">🔬</div><h3>Laboratorio</h3><p>Exámenes de sangre con resultados el mismo día.</p></div>
-    <div class="s"><div class="ic">🏥</div><h3>Cirugía</h3><p>Castraciones y cirugías con monitoreo profesional.</p></div>
-    <div class="s"><div class="ic">🦷</div><h3>Limpieza dental</h3><p>Salud bucal para prevenir enfermedades.</p></div>
-    <div class="s"><div class="ic">🛁</div><h3>Estética</h3><p>Baño, corte y uñas con productos especiales.</p></div>
+    <div class="s"><div class="ic"><svg class="i" aria-hidden="true"><use href="#i-steth"/></svg></div><h3>Consulta general</h3><p>Revisión completa, diagnóstico y tratamiento.</p></div>
+    <div class="s"><div class="ic"><svg class="i" aria-hidden="true"><use href="#i-syringe"/></svg></div><h3>Vacunación</h3><p>Planes de vacunas y desparasitación para cachorros y adultos.</p></div>
+    <div class="s"><div class="ic"><svg class="i" aria-hidden="true"><use href="#i-micro"/></svg></div><h3>Laboratorio</h3><p>Exámenes de sangre con resultados el mismo día.</p></div>
+    <div class="s"><div class="ic"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></div><h3>Cirugía</h3><p>Castraciones y cirugías con monitoreo profesional.</p></div>
+    <div class="s"><div class="ic"><svg class="i" aria-hidden="true"><use href="#i-tooth"/></svg></div><h3>Limpieza dental</h3><p>Salud bucal para prevenir enfermedades.</p></div>
+    <div class="s"><div class="ic"><svg class="i" aria-hidden="true"><use href="#i-drop"/></svg></div><h3>Estética</h3><p>Baño, corte y uñas con productos especiales.</p></div>
   </div>
 </div></section>
 
 <div class="wrap"><div class="banner">
   <div><h3>¿Es una emergencia?</h3><p>Si su mascota tuvo un accidente, comió algo tóxico o está muy decaída, llámenos de inmediato. Atendemos 24/7.</p></div>
-  <a href="#" class="btn btn-w" onclick="showDemo('📞 En la página real, este botón llama directo al número de emergencias de la veterinaria.');return false">📞 Llamar ahora</a>
+  <a href="#" class="btn btn-w" onclick="showDemo('En la página real, este botón llama directo al número de emergencias de la veterinaria.');return false">Llamar ahora</a>
 </div></div>
 
 <section id="cita"><div class="wrap cita">
@@ -154,9 +165,9 @@ footer a{color:#7ff0dd;font-weight:800}
     </div>
   </div>
   <form class="form" id="citaForm">
-    <h3>🐾 Datos de la cita</h3>
+    <h3>Datos de la cita</h3>
     <div class="f2"><div class="field"><label>Su nombre</label><input id="cn" required placeholder="Nombre"></div><div class="field"><label>Nombre de la mascota</label><input id="cm" required placeholder="Ej: Firulais"></div></div>
-    <div class="field"><label>Especie</label><div class="species" id="species"><button type="button" class="sp on">🐶 Perro</button><button type="button" class="sp">🐱 Gato</button><button type="button" class="sp">🐰 Conejo</button><button type="button" class="sp">🦜 Otro</button></div></div>
+    <div class="field"><label>Especie</label><div class="species" id="species"><button type="button" class="sp on">Perro</button><button type="button" class="sp">Gato</button><button type="button" class="sp">Conejo</button><button type="button" class="sp">Otro</button></div></div>
     <div class="field"><label>Fecha preferida</label><input type="date" id="cd" required></div>
     <div class="field"><label>Motivo</label><textarea id="cmo" rows="3" required placeholder="Ej: vacunas, no quiere comer, revisión..."></textarea></div>
     <button class="btn btn-t" type="submit">Solicitar cita por WhatsApp</button>
@@ -166,9 +177,9 @@ footer a{color:#7ff0dd;font-weight:800}
 <section id="consejos" style="background:#fff"><div class="wrap">
   <div class="head"><small>Consejos</small><h2>Tips para una mascota feliz</h2></div>
   <div class="tips">
-    <div class="tip"><div class="art">🦴</div><div class="b"><small>Alimentación</small><h3>Ojo con la comida de la mesa</h3><p>Chocolate, uvas y cebolla son tóxicos para perros. Mejor golosinas para mascotas.</p></div></div>
-    <div class="tip"><div class="art">🌡️</div><div class="b"><small>Prevención</small><h3>Vacunas y desparasitación</h3><p>Mantener el calendario al día previene enfermedades graves y costosas.</p></div></div>
-    <div class="tip"><div class="art">🐱</div><div class="b"><small>Gatos</small><h3>Agua fresca siempre</h3><p>Los gatos toman poca agua: una fuente o varios platos ayudan a sus riñones.</p></div></div>
+    <div class="tip"><div class="art ph" style="--img:url(img/consejo-1.jpg)"><svg class="i" aria-hidden="true"><use href="#i-bowl"/></svg></div><div class="b"><small>Alimentación</small><h3>Ojo con la comida de la mesa</h3><p>Chocolate, uvas y cebolla son tóxicos para perros. Mejor golosinas para mascotas.</p></div></div>
+    <div class="tip"><div class="art ph" style="--img:url(img/consejo-2.jpg)"><svg class="i" aria-hidden="true"><use href="#i-therm"/></svg></div><div class="b"><small>Prevención</small><h3>Vacunas y desparasitación</h3><p>Mantener el calendario al día previene enfermedades graves y costosas.</p></div></div>
+    <div class="tip"><div class="art ph" style="--img:url(img/consejo-3.jpg)"><svg class="i" aria-hidden="true"><use href="#i-drop"/></svg></div><div class="b"><small>Gatos</small><h3>Agua fresca siempre</h3><p>Los gatos toman poca agua: una fuente o varios platos ayudan a sus riñones.</p></div></div>
   </div>
 </div></section>
 
@@ -180,8 +191,8 @@ footer a{color:#7ff0dd;font-weight:800}
 <section id="ubicacion" style="padding-top:0"><div class="wrap">
   <div class="head"><small>Ubicación</small><h2>Visítenos en Grecia</h2></div>
   <div class="loc">
-    <div class="card"><h3 style="margin-bottom:14px">🕐 Horario</h3><table><tr><td>Lunes a viernes</td><td>8:00 – 19:00</td></tr><tr><td>Sábado</td><td>8:00 – 16:00</td></tr><tr><td>Domingo</td><td>Solo emergencias</td></tr></table>
-      <p style="color:var(--muted);margin:18px 0">📍 Grecia centro, Alajuela (dirección de muestra). Parqueo para clientes.</p>
+    <div class="card"><h3 style="margin-bottom:14px">Horario</h3><table><tr><td>Lunes a viernes</td><td>8:00 – 19:00</td></tr><tr><td>Sábado</td><td>8:00 – 16:00</td></tr><tr><td>Domingo</td><td>Solo emergencias</td></tr></table>
+      <p style="color:var(--muted);margin:18px 0">Grecia centro, Alajuela (dirección de muestra). Parqueo para clientes.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-t" href="https://www.google.com/maps/search/?api=1&query=Grecia+Alajuela" target="_blank" rel="noopener">Google Maps</a><a class="btn btn-w" href="https://waze.com/ul?q=Grecia%20Alajuela" target="_blank" rel="noopener">Waze</a></div></div>
     <div class="map"><iframe src="https://maps.google.com/maps?q=Grecia%20Alajuela%20Costa%20Rica&z=15&output=embed" loading="lazy" title="Mapa"></iframe></div>
   </div>
@@ -190,7 +201,7 @@ footer a{color:#7ff0dd;font-weight:800}
 <footer>© Veterinaria Patitas (negocio ficticio) · Página de muestra hecha por <a href="../../index.html">Kevin Campos</a></footer>
 
 <div class="modal" id="modal"><div class="mb">
-  <h3>¡Así funciona! 🐾</h3>
+  <h3>¡Así funciona! </h3>
   <p>En la página real, esto le llega directo al WhatsApp de la veterinaria:</p>
   <div class="bubble" id="bubble"></div>
   <div class="btns"><a class="btn btn-t" id="wantBtn" target="_blank" rel="noopener">Quiero una página así</a><button class="btn btn-w" onclick="closeModal()">Cerrar</button></div>
@@ -202,15 +213,17 @@ const faqs=[["¿Necesito cita o puedo llegar directo?","Puede llegar directo, pe
 const fq=document.getElementById("faq");
 fq.innerHTML=faqs.map(([q,a])=>`<div class="q"><button>${q}<i>+</i></button><div class="a"><p>${a}</p></div></div>`).join("");
 fq.onclick=e=>{const b=e.target.closest("button");if(!b)return;const q=b.parentElement,a=q.querySelector(".a"),o=q.classList.toggle("open");a.style.maxHeight=o?a.scrollHeight+"px":0};
-let especie="🐶 Perro";
+let especie="Perro";
 document.getElementById("species").onclick=e=>{const b=e.target.closest(".sp");if(!b)return;document.querySelectorAll(".sp").forEach(s=>s.classList.toggle("on",s===b));especie=b.textContent};
 const cd=document.getElementById("cd");cd.valueAsDate=new Date();cd.min=cd.value;
 document.getElementById("citaForm").onsubmit=e=>{e.preventDefault();const v=id=>document.getElementById(id).value.trim();
  const f=new Date(cd.value+"T12:00").toLocaleDateString("es-CR",{weekday:"long",day:"numeric",month:"long"});
- showDemo(`Hola Veterinaria Patitas 🐾 Quisiera agendar una cita:\n\n• Dueño: ${v("cn")}\n• Mascota: ${v("cm")} (${especie})\n• Fecha preferida: ${f}\n• Motivo: ${v("cmo")}`)};
+ showDemo(`Hola Veterinaria Patitas, quisiera agendar una cita:\n\n• Dueño: ${v("cn")}\n• Mascota: ${v("cm")} (${especie})\n• Fecha preferida: ${f}\n• Motivo: ${v("cmo")}`)};
 function showDemo(msg){document.getElementById("bubble").textContent=msg;document.getElementById("wantBtn").href=`https://wa.me/${KEVIN_WA}?text=${encodeURIComponent("Hola Kevin, vi la demo de la veterinaria y me interesa una página así para mi negocio.")}`;document.getElementById("modal").classList.add("open")}
 function closeModal(){document.getElementById("modal").classList.remove("open")}
 document.getElementById("modal").onclick=e=>{if(e.target.id==="modal")closeModal()};
 </script>
+
+<script>document.querySelectorAll('[style*="--img"]').forEach(el=>{const m=el.getAttribute('style').match(/url\(([^)]+)\)/);if(!m)return;const im=new Image();im.onload=()=>el.classList.add('has-img');im.src=m[1]});</script>
 </body>
 </html>

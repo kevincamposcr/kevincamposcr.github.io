@@ -1,0 +1,6 @@
+Ponga aquí las fotos con estos nombres exactos (formato .jpg):
+hero.jpg       -> perro o gato feliz, foto cuadrada (va dentro de la forma turquesa)
+consejo-1.jpg  -> perro comiendo / plato de comida
+consejo-2.jpg  -> veterinario revisando una mascota
+consejo-3.jpg  -> gato tomando agua
+Si una foto no está, la página muestra un ícono en su lugar.

@@ -97,31 +97,37 @@ footer a{color:var(--yellow);font-weight:700}
 .mb .btn-o{color:#111;border-color:#111}
 @media(max-width:960px){.hero-grid,.quote,.loc{grid-template-columns:1fr}.svc{grid-template-columns:1fr 1fr}.proc,.trust-g{grid-template-columns:1fr 1fr}.t:nth-child(2){border-right:0}.nav ul{display:none}.gauge{max-width:240px}}
 @media(max-width:600px){.svc,.proc,.trust-g,.f3{grid-template-columns:1fr}.t{border-right:0;border-bottom:1px solid #e5e7eb}.nav-r .btn{display:none}.logo small{display:none}}
+.i{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;vertical-align:-.15em}
+.s .ic{color:var(--red);font-size:32px}
+.t span{color:var(--red);display:grid;place-items:center}
+.why li span{color:var(--red)}
+.logo i{color:#fff}
 </style>
 </head>
 <body>
-<div class="demo-badge">🧪 Proyecto de muestra · Negocio ficticio · Diseñado por Kevin Campos · <a href="../../index.html">Ver portafolio</a></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 7h3l2-3h6l2 3h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="4"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 4.5-5"/></symbol><symbol id="i-lang" viewBox="0 0 24 24"><path d="M4 5h8M8 3v2M5 11c2-1.5 4-4 5-6M6 7c1 2 3 4 6 5"/><path d="m13 21 4-9 4 9M14.5 18h5"/></symbol><symbol id="i-laptop" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></symbol><symbol id="i-money" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15 9c-.5-1-1.6-1.5-3-1.5-1.7 0-3 .8-3 2.2 0 3 6 1.6 6 4.6 0 1.4-1.3 2.2-3 2.2-1.4 0-2.6-.6-3-1.6M12 6v1.5M12 16.5V18"/></symbol><symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></symbol><symbol id="i-disc" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3"/></symbol><symbol id="i-spring" viewBox="0 0 24 24"><path d="M8 3h8M8 21h8M8 7l8 2-8 2 8 2-8 2 8 2"/></symbol><symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 2.5s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></symbol><symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.9 4.9 7 7M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1"/></symbol><symbol id="i-snow" viewBox="0 0 24 24"><path d="M12 2v20M4.9 7l14.2 10M4.9 17 19.1 7"/><path d="m9 4 3 2 3-2M9 20l3-2 3 2"/></symbol></svg>
+<div class="demo-badge">Proyecto de muestra · Negocio ficticio · Diseñado por Kevin Campos · <a href="../../index.html">Ver portafolio</a></div>
 <header><div class="wrap nav">
-  <a href="#" class="logo"><i>🔧</i><div>Hermanos Solís<small>TALLER AUTOMOTRIZ</small></div></a>
+  <a href="#" class="logo"><i><svg class="i" aria-hidden="true"><use href="#i-wrench"/></svg></i><div>Hermanos Solís<small>TALLER AUTOMOTRIZ</small></div></a>
   <ul><li><a href="#servicios" data-es="Servicios" data-en="Services">Servicios</a></li><li><a href="#proceso" data-es="Cómo trabajamos" data-en="How we work">Cómo trabajamos</a></li><li><a href="#cotizar" data-es="Cotizar" data-en="Get a quote">Cotizar</a></li><li><a href="#ubicacion" data-es="Ubicación" data-en="Location">Ubicación</a></li></ul>
   <div class="nav-r"><div class="lang"><button class="on" data-l="es">ES</button><button data-l="en">EN</button></div><a href="#cotizar" class="btn btn-r" data-es="Cotizar" data-en="Get a quote">Cotizar</a></div>
 </div></header>
 
 <section class="hero"><div class="wrap hero-grid">
   <div>
-    <span class="kick" data-es="⚙ Mecánica general · Grecia" data-en="⚙ Full-service mechanics · Grecia">⚙ Mecánica general · Grecia</span>
+    <span class="kick" data-es="Mecánica general · Grecia" data-en="Full-service mechanics · Grecia">Mecánica general · Grecia</span>
     <h1 data-es="Su carro en manos <span>honestas</span>" data-en="Your car in <span>honest</span> hands">Su carro en manos <span>honestas</span></h1>
     <p data-es="Diagnóstico por computadora, frenos, suspensión, motor y mantenimiento preventivo. Le explicamos todo antes de reparar y le mostramos las piezas que cambiamos." data-en="Computer diagnostics, brakes, suspension, engine work and preventive maintenance. We explain everything before we repair and show you the parts we replace.">Diagnóstico por computadora, frenos, suspensión, motor y mantenimiento preventivo. Le explicamos todo antes de reparar y le mostramos las piezas que cambiamos.</p>
-    <div class="ctas"><a href="#cotizar" class="btn btn-y" data-es="📋 Pedir cotización" data-en="📋 Request a quote">📋 Pedir cotización</a><a href="#servicios" class="btn btn-o" data-es="Ver servicios" data-en="See services">Ver servicios</a></div>
+    <div class="ctas"><a href="#cotizar" class="btn btn-y" data-es="Pedir cotización" data-en="Request a quote">Pedir cotización</a><a href="#servicios" class="btn btn-o" data-es="Ver servicios" data-en="See services">Ver servicios</a></div>
   </div>
   <div class="gauge"><div class="needle"></div><div class="in"><b>20+</b><small data-es="años de experiencia" data-en="years of experience">años de experiencia</small></div></div>
 </div></section>
 
 <div class="wrap trust"><div class="trust-g">
-  <div class="t"><span>🛠️</span><div><b data-es="Todas las marcas" data-en="All makes">Todas las marcas</b><small data-es="Japonesas, coreanas, americanas" data-en="Japanese, Korean, American">Japonesas, coreanas, americanas</small></div></div>
-  <div class="t"><span>💻</span><div><b data-es="Escáner" data-en="Scanner">Escáner</b><small data-es="Diagnóstico computarizado" data-en="Computer diagnostics">Diagnóstico computarizado</small></div></div>
-  <div class="t"><span>🗣️</span><div><b data-es="Bilingüe" data-en="Bilingual">Bilingüe</b><small data-es="Atendemos en inglés" data-en="We speak English">Atendemos en inglés</small></div></div>
-  <div class="t"><span>✅</span><div><b data-es="Garantía" data-en="Warranty">Garantía</b><small data-es="En mano de obra" data-en="On labor">En mano de obra</small></div></div>
+  <div class="t"><span><svg class="i" aria-hidden="true"><use href="#i-wrench"/></svg></span><div><b data-es="Todas las marcas" data-en="All makes">Todas las marcas</b><small data-es="Japonesas, coreanas, americanas" data-en="Japanese, Korean, American">Japonesas, coreanas, americanas</small></div></div>
+  <div class="t"><span><svg class="i" aria-hidden="true"><use href="#i-laptop"/></svg></span><div><b data-es="Escáner" data-en="Scanner">Escáner</b><small data-es="Diagnóstico computarizado" data-en="Computer diagnostics">Diagnóstico computarizado</small></div></div>
+  <div class="t"><span><svg class="i" aria-hidden="true"><use href="#i-lang"/></svg></span><div><b data-es="Bilingüe" data-en="Bilingual">Bilingüe</b><small data-es="Atendemos en inglés" data-en="We speak English">Atendemos en inglés</small></div></div>
+  <div class="t"><span><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span><div><b data-es="Garantía" data-en="Warranty">Garantía</b><small data-es="En mano de obra" data-en="On labor">En mano de obra</small></div></div>
 </div></div>
 
 <section id="servicios"><div class="wrap">
@@ -143,8 +149,8 @@ footer a{color:var(--yellow);font-weight:700}
   <div>
     <div class="head"><small data-es="Cotización" data-en="Quote">Cotización</small><h2 data-es="Pida su cotización" data-en="Get your quote">Pida su cotización</h2><p data-es="Cuéntenos qué tiene su carro y le respondemos por WhatsApp." data-en="Tell us what's going on with your car and we'll reply on WhatsApp.">Cuéntenos qué tiene su carro y le respondemos por WhatsApp.</p></div>
     <ul class="why">
-      <li><span>📸</span><div><b data-es="Fotos de todo" data-en="Photos of everything">Fotos de todo</b><small data-es="Le mostramos el problema antes de repararlo." data-en="We show you the problem before fixing it.">Le mostramos el problema antes de repararlo.</small></div></li>
-      <li><span>💰</span><div><b data-es="Precio claro" data-en="Clear pricing">Precio claro</b><small data-es="Sin cobros sorpresa al final." data-en="No surprise charges at the end.">Sin cobros sorpresa al final.</small></div></li>
+      <li><span><svg class="i" aria-hidden="true"><use href="#i-camera"/></svg></span><div><b data-es="Fotos de todo" data-en="Photos of everything">Fotos de todo</b><small data-es="Le mostramos el problema antes de repararlo." data-en="We show you the problem before fixing it.">Le mostramos el problema antes de repararlo.</small></div></li>
+      <li><span><svg class="i" aria-hidden="true"><use href="#i-money"/></svg></span><div><b data-es="Precio claro" data-en="Clear pricing">Precio claro</b><small data-es="Sin cobros sorpresa al final." data-en="No surprise charges at the end.">Sin cobros sorpresa al final.</small></div></li>
     </ul>
   </div>
   <form class="form" id="qf">
@@ -168,7 +174,7 @@ footer a{color:var(--yellow);font-weight:700}
         <tr><td data-es="Sábado" data-en="Saturday">Sábado</td><td>7:30 – 12:00</td></tr>
         <tr><td data-es="Domingo" data-en="Sunday">Domingo</td><td data-es="Cerrado" data-en="Closed">Cerrado</td></tr>
       </table>
-      <p style="color:var(--muted);margin:18px 0" data-es="📍 Grecia, Alajuela (dirección de muestra)." data-en="📍 Grecia, Alajuela (sample address).">📍 Grecia, Alajuela (dirección de muestra).</p>
+      <p style="color:var(--muted);margin:18px 0" data-es="Grecia, Alajuela (dirección de muestra)." data-en="Grecia, Alajuela (sample address).">Grecia, Alajuela (dirección de muestra).</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-y" href="https://www.google.com/maps/search/?api=1&query=Grecia+Alajuela" target="_blank" rel="noopener">Google Maps</a><a class="btn btn-o" href="https://waze.com/ul?q=Grecia%20Alajuela" target="_blank" rel="noopener">Waze</a></div>
     </div>
     <div class="map"><iframe src="https://maps.google.com/maps?q=Grecia%20Alajuela%20Costa%20Rica&z=14&output=embed" loading="lazy" title="Mapa"></iframe></div>
@@ -187,14 +193,14 @@ footer a{color:var(--yellow);font-weight:700}
 <script>
 const KEVIN_WA="50670323812";
 let lang="es";
-const svcs=[["💻","Diagnóstico por escáner","Scanner diagnostics","Luz de check engine, fallas eléctricas y sensores.","Check engine light, electrical faults and sensors."],["🛑","Frenos","Brakes","Pastillas, discos, líquido y ABS.","Pads, rotors, fluid and ABS."],["🔩","Suspensión y dirección","Suspension & steering","Amortiguadores, rótulas, terminales y alineado.","Shocks, ball joints, tie rods and alignment."],["🛢️","Mantenimiento preventivo","Preventive maintenance","Cambio de aceite, filtros, bujías y fajas.","Oil change, filters, spark plugs and belts."],["⚙️","Motor y transmisión","Engine & transmission","Reparación de motor, embrague y cajas.","Engine repair, clutch and gearboxes."],["❄️","Aire acondicionado","Air conditioning","Recarga, fugas y compresores.","Recharge, leaks and compressors."]];
-function renderSvc(){document.getElementById("svc").innerHTML=svcs.map((s,i)=>`<div class="s"><span class="num">0${i+1}</span><div class="ic">${s[0]}</div><h3>${lang==="es"?s[1]:s[2]}</h3><p>${lang==="es"?s[3]:s[4]}</p></div>`).join("");
+const svcs=[["laptop","Diagnóstico por escáner","Scanner diagnostics","Luz de check engine, fallas eléctricas y sensores.","Check engine light, electrical faults and sensors."],["disc","Frenos","Brakes","Pastillas, discos, líquido y ABS.","Pads, rotors, fluid and ABS."],["spring","Suspensión y dirección","Suspension & steering","Amortiguadores, rótulas, terminales y alineado.","Shocks, ball joints, tie rods and alignment."],["drop","Mantenimiento preventivo","Preventive maintenance","Cambio de aceite, filtros, bujías y fajas.","Oil change, filters, spark plugs and belts."],["gear","Motor y transmisión","Engine & transmission","Reparación de motor, embrague y cajas.","Engine repair, clutch and gearboxes."],["snow","Aire acondicionado","Air conditioning","Recarga, fugas y compresores.","Recharge, leaks and compressors."]];
+function renderSvc(){document.getElementById("svc").innerHTML=svcs.map((s,i)=>`<div class="s"><span class="num">0${i+1}</span><div class="ic"><svg class="i" aria-hidden="true"><use href="#i-${s[0]}"/></svg></div><h3>${lang==="es"?s[1]:s[2]}</h3><p>${lang==="es"?s[3]:s[4]}</p></div>`).join("");
  document.getElementById("qs").innerHTML=svcs.map(s=>`<option>${lang==="es"?s[1]:s[2]}</option>`).join("")}
 function setLang(l){lang=l;document.documentElement.lang=l;document.querySelectorAll("[data-es]").forEach(el=>el.innerHTML=el.dataset[l]);document.querySelectorAll(".lang button").forEach(b=>b.classList.toggle("on",b.dataset.l===l));renderSvc()}
 document.querySelector(".lang").onclick=e=>{const b=e.target.closest("button");if(b)setLang(b.dataset.l)};
 renderSvc();
 document.getElementById("qf").onsubmit=e=>{e.preventDefault();const v=id=>document.getElementById(id).value.trim();
- const msg=lang==="es"?`Hola Taller Hermanos Solís 🔧 Quisiera una cotización:\n\n• Nombre: ${v("qn")}\n• Vehículo: ${v("qm")} ${v("qy")}\n• Servicio: ${v("qs")}\n• Síntomas: ${v("qp")}`:`Hi Hermanos Solís 🔧 I'd like a quote:\n\n• Name: ${v("qn")}\n• Vehicle: ${v("qm")} ${v("qy")}\n• Service: ${v("qs")}\n• Symptoms: ${v("qp")}`;
+ const msg=lang==="es"?`Hola Taller Hermanos Solís, quisiera una cotización:\n\n• Nombre: ${v("qn")}\n• Vehículo: ${v("qm")} ${v("qy")}\n• Servicio: ${v("qs")}\n• Síntomas: ${v("qp")}`:`Hi Hermanos Solís, I'd like a quote:\n\n• Name: ${v("qn")}\n• Vehicle: ${v("qm")} ${v("qy")}\n• Service: ${v("qs")}\n• Symptoms: ${v("qp")}`;
  document.getElementById("bubble").textContent=msg;
  document.getElementById("wantBtn").href=`https://wa.me/${KEVIN_WA}?text=${encodeURIComponent("Hola Kevin, vi la demo del taller y me interesa una página así para mi negocio.")}`;
  document.getElementById("modal").classList.add("open")};

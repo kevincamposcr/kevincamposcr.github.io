@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Mirador · Café de altura | Tienda en línea (demo)</title>
+<meta name="description" content="Demo de tienda en línea: café de la zona con carrito de compras, envío y pago por SINPE Móvil o tarjeta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--green:#1f3a2e;--green2:#2c5141;--cream:#f6f1e7;--cream2:#ece3d2;--terra:#b5653a;--terra-d:#97512c;--ink:#1d1a16;--muted:#6f675c;--line:#e2d8c6;--white:#fffdf9}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:Inter,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6}
+h1,h2,h3{font-family:"DM Serif Display",serif;font-weight:400;line-height:1.08;letter-spacing:-.3px}
+a{color:inherit;text-decoration:none}button,input,select{font:inherit}button{cursor:pointer}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.i{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.demo-badge{background:var(--green);color:#cfe0d6;font-size:12.5px;text-align:center;padding:8px}
+.demo-badge a{color:#f3c9a6;font-weight:600;text-decoration:underline}
+
+header{position:sticky;top:0;z-index:40;background:rgba(246,241,231,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;justify-content:space-between;align-items:center;height:72px}
+.logo{display:flex;flex-direction:column;line-height:1}
+.logo b{font-family:"DM Serif Display";font-weight:400;font-size:26px;color:var(--green)}
+.logo small{font-size:10.5px;letter-spacing:3px;text-transform:uppercase;color:var(--terra);font-weight:600;margin-top:3px}
+.nav ul{display:flex;gap:28px;list-style:none;font-size:14.5px;font-weight:500;color:var(--muted)}
+.nav ul a:hover{color:var(--ink)}
+.cart-btn{position:relative;display:flex;align-items:center;gap:8px;background:var(--green);color:#fff;border:0;border-radius:999px;padding:10px 18px;font-weight:600}
+.cart-btn .n{background:var(--terra);color:#fff;border-radius:999px;font-size:12px;min-width:22px;height:22px;display:grid;place-items:center;padding:0 6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 24px;border-radius:999px;font-weight:600;font-size:15px;border:0;transition:background .2s,transform .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-t{background:var(--terra);color:#fff}.btn-t:hover{background:var(--terra-d)}
+.btn-g{background:var(--green);color:#fff}.btn-g:hover{background:var(--green2)}
+.btn-l{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.6)}
+.btn-o{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+
+.hero{position:relative;color:#fff;min-height:560px;display:flex;align-items:center;overflow:hidden;background:var(--green)}
+.hero .bg{position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,38,30,.92) 30%,rgba(20,38,30,.25)),var(--img) center/cover no-repeat}
+.hero .wrap{position:relative;padding-top:70px;padding-bottom:70px}
+.eyebrow{font-size:12.5px;letter-spacing:3px;text-transform:uppercase;color:#f3c9a6;font-weight:600;margin-bottom:18px;display:flex;gap:12px;align-items:center}
+.eyebrow::before{content:"";width:34px;height:1.5px;background:#f3c9a6}
+.hero h1{font-size:clamp(42px,6vw,74px);max-width:640px;margin-bottom:18px}
+.hero h1 em{color:#f3c9a6}
+.hero p{color:#d5e2da;font-size:18px;max-width:520px;margin-bottom:28px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+
+.perks{background:var(--white);border-bottom:1px solid var(--line)}
+.perks .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding-top:22px;padding-bottom:22px}
+.pk{display:flex;gap:12px;align-items:center;font-size:14px;color:var(--muted)}
+.pk .i{color:var(--terra);width:26px;height:26px}
+.pk b{display:block;color:var(--ink);font-size:14.5px}
+
+section{padding:90px 0}
+.head{text-align:center;max-width:620px;margin:0 auto 40px}
+.head small{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--terra);font-weight:600}
+.head h2{font-size:clamp(34px,4.4vw,50px);margin:8px 0 10px;color:var(--green)}
+.head p{color:var(--muted)}
+.tabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:34px}
+.tab{background:transparent;border:1.5px solid var(--line);border-radius:999px;padding:9px 20px;font-weight:600;color:var(--muted)}
+.tab.on{background:var(--green);border-color:var(--green);color:#fff}
+
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.prod{background:var(--white);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.prod.hide{display:none}
+.pimg{aspect-ratio:1;background:#eee center/cover no-repeat;position:relative}
+.label{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);width:34%;background:var(--white);border-radius:4px;padding:8px 6px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.08)}
+.label .band{height:5px;border-radius:2px;margin-bottom:6px}
+.label b{display:block;font-family:"DM Serif Display";font-weight:400;font-size:clamp(11px,1.15vw,15px);line-height:1.1;color:var(--green)}
+.label small{display:block;font-size:clamp(7px,.6vw,9px);letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-top:3px}
+.badge{position:absolute;top:12px;left:12px;background:var(--terra);color:#fff;font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:999px}
+.pb{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.pb h3{font-size:22px;color:var(--green)}
+.notes{color:var(--muted);font-size:13.5px}
+.meta{display:flex;gap:8px;flex-wrap:wrap}
+.meta span{font-size:11.5px;font-weight:600;background:var(--cream);border:1px solid var(--line);padding:2px 9px;border-radius:999px;color:var(--muted)}
+.pb select{padding:9px 10px;border:1.5px solid var(--line);border-radius:10px;background:#fff;font-size:14px}
+.buy{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:8px}
+.buy b{font-size:19px}
+.add{background:var(--green);color:#fff;border:0;border-radius:999px;padding:9px 16px;font-weight:600;font-size:14px;display:flex;align-items:center;gap:6px}
+.add.ok{background:var(--terra)}
+
+.story{background:var(--green);color:#fff}
+.story .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.story .ph{aspect-ratio:4/5;border-radius:20px;background:#333 center/cover no-repeat}
+.story h2{font-size:clamp(32px,4vw,46px);margin:10px 0 18px}
+.story p{color:#cfe0d6;margin-bottom:14px}
+.steps{display:grid;gap:16px;margin-top:26px}
+.st{display:flex;gap:14px}
+.st b{flex-shrink:0;width:38px;height:38px;border-radius:50%;background:rgba(243,201,166,.15);color:#f3c9a6;display:grid;place-items:center;font-family:"DM Serif Display";font-weight:400;font-size:18px}
+.st h4{font-size:16px}.st p{margin:0;font-size:14.5px}
+
+.ship{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.sh{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:26px}
+.sh .i{color:var(--terra);width:30px;height:30px;margin-bottom:12px}
+.sh h3{font-size:22px;color:var(--green);margin-bottom:6px}.sh p{color:var(--muted);font-size:14.5px}
+
+footer{background:var(--ink);color:#a49b8e;padding:30px 0;font-size:13.5px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+footer a{color:#f3c9a6}
+
+/* carrito */
+.scrim{position:fixed;inset:0;background:rgba(20,18,14,.45);opacity:0;pointer-events:none;transition:opacity .3s;z-index:90}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(440px,100%);background:var(--white);z-index:95;transform:translateX(100%);transition:transform .35s;display:flex;flex-direction:column;box-shadow:-20px 0 40px rgba(0,0,0,.15)}
+.drawer.on{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:20px 22px;border-bottom:1px solid var(--line)}
+.dh h3{font-size:26px;color:var(--green)}
+.x{background:none;border:0;width:38px;height:38px;border-radius:50%;display:grid;place-items:center}
+.x:hover{background:var(--cream)}
+.db{flex:1;overflow:auto;padding:16px 22px}
+.line{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.line .th{width:64px;height:64px;border-radius:10px;background:#eee center/cover no-repeat}
+.line b{font-size:14.5px;display:block}.line small{color:var(--muted);font-size:12.5px}
+.qty{display:flex;align-items:center;gap:6px;margin-top:4px}
+.qty button{width:26px;height:26px;border-radius:50%;border:1px solid var(--line);background:#fff;line-height:1}
+.empty{color:var(--muted);text-align:center;padding:40px 0}
+.df{border-top:1px solid var(--line);padding:18px 22px;display:grid;gap:10px}
+.tot{display:flex;justify-content:space-between;font-size:14.5px;color:var(--muted)}
+.tot.big{font-size:18px;color:var(--ink);font-weight:700}
+.note{font-size:12.5px;color:var(--terra)}
+
+/* checkout */
+.modal{position:fixed;inset:0;background:rgba(20,18,14,.55);display:none;place-items:center;z-index:100;padding:16px;overflow:auto}
+.modal.open{display:grid}
+.mb{background:var(--white);border-radius:20px;max-width:560px;width:100%;padding:28px;position:relative}
+.mb h3{font-size:28px;color:var(--green);margin-bottom:4px}
+.mb>p{color:var(--muted);font-size:14.5px;margin-bottom:16px}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{margin-bottom:12px}
+.field label{display:block;font-size:12.5px;font-weight:600;color:var(--muted);margin-bottom:5px}
+.field input,.field select{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff}
+.field input:focus,.field select:focus{outline:none;border-color:var(--green)}
+.pay{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:6px 0 14px}
+.pay label{border:1.5px solid var(--line);border-radius:12px;padding:12px;display:flex;gap:10px;align-items:center;cursor:pointer;font-weight:600;font-size:14.5px}
+.pay input{accent-color:var(--green)}
+.pay label:has(input:checked){border-color:var(--green);background:#eef4f0}
+.pinfo{background:var(--cream);border-radius:12px;padding:14px;font-size:14px;color:var(--muted);margin-bottom:14px}
+.pinfo b{color:var(--ink)}
+.bubble{background:#dcf8c6;border-radius:12px 12px 2px 12px;padding:14px;font-size:13.5px;white-space:pre-wrap;margin:10px 0 16px;max-height:260px;overflow:auto}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,40px);background:var(--green);color:#fff;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:all .3s;z-index:120;display:flex;gap:8px;align-items:center}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}.perks .wrap{grid-template-columns:1fr 1fr}.story .wrap{grid-template-columns:1fr}.story .ph{aspect-ratio:16/10}.nav ul{display:none}}
+@media(max-width:700px){.grid{grid-template-columns:1fr 1fr}.ship{grid-template-columns:1fr}.f2,.pay{grid-template-columns:1fr}.label b{font-size:12px}}
+@media(max-width:440px){.grid{grid-template-columns:1fr}.perks .wrap{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 7h14l-1 14H6L5 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></symbol>
+<symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19c0-8 6-14 15-14 0 9-6 15-14 15"/><path d="M5 19 13 11"/></symbol>
+<symbol id="i-fire" viewBox="0 0 24 24"><path d="M12 22c4 0 7-3 7-7 0-4-3-6-4-10-2 2-3 4-3 6-1-1-2-2-2-4-2 2-5 5-5 8 0 4 3 7 7 7z"/></symbol>
+<symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></symbol>
+<symbol id="i-card" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></symbol>
+<symbol id="i-store" viewBox="0 0 24 24"><path d="M3 9l2-5h14l2 5M4 9v11h16V9M3 9h18"/><path d="M9 20v-6h6v6"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+</svg>
+
+<div class="demo-badge">Proyecto de muestra · Negocio ficticio · Diseñado por Kevin Campos · Fotos: <a href="https://www.pexels.com" target="_blank" rel="noopener">Pexels</a> · <a href="../../index.html">Ver portafolio</a></div>
+
+<header><div class="wrap nav">
+  <a href="#" class="logo"><b>El Mirador</b><small>Café de altura · Costa Rica</small></a>
+  <ul><li><a href="#tienda">Tienda</a></li><li><a href="#historia">Nuestro café</a></li><li><a href="#envios">Envíos y pagos</a></li></ul>
+  <button class="cart-btn" onclick="openCart()" aria-label="Abrir carrito"><svg class="i"><use href="#i-bag"/></svg>Carrito <span class="n" id="cartN">0</span></button>
+</div></header>
+
+<section class="hero" style="padding:0"><div class="bg" style="--img:url('https://images.pexels.com/photos/16761789/pexels-photo-16761789.jpeg?auto=compress&cs=tinysrgb&w=1800')"></div>
+  <div class="wrap">
+    <div class="eyebrow">Del cafetal a su taza</div>
+    <h1>Café de altura, <em>tostado cada semana</em></h1>
+    <p>Granos de las faldas del volcán Poás y del Valle Occidental, tostados en pequeños lotes y enviados a todo el país.</p>
+    <div class="ctas"><a href="#tienda" class="btn btn-t">Comprar café</a><a href="#historia" class="btn btn-l">Conocer nuestro café</a></div>
+  </div>
+</section>
+
+<div class="perks"><div class="wrap">
+  <div class="pk"><svg class="i"><use href="#i-fire"/></svg><div><b>Tostado fresco</b>Cada semana, en pequeños lotes</div></div>
+  <div class="pk"><svg class="i"><use href="#i-truck"/></svg><div><b>Envíos a todo el país</b>Gratis desde ₡25 000</div></div>
+  <div class="pk"><svg class="i"><use href="#i-phone"/></svg><div><b>SINPE Móvil</b>O tarjeta de crédito y débito</div></div>
+  <div class="pk"><svg class="i"><use href="#i-leaf"/></svg><div><b>Directo del productor</b>Comercio justo con familias de la zona</div></div>
+</div></div>
+
+<section id="tienda"><div class="wrap">
+  <div class="head"><small>Tienda</small><h2>Elija su café</h2><p>Agregue productos al carrito y pague con SINPE Móvil o con tarjeta.</p></div>
+  <div class="tabs" id="tabs"><button class="tab on" data-c="all">Todo</button><button class="tab" data-c="cafe">Café</button><button class="tab" data-c="acc">Accesorios</button><button class="tab" data-c="regalo">Regalos</button></div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section class="story" id="historia"><div class="wrap">
+  <div class="ph" style="background-image:url('https://images.pexels.com/photos/4816479/pexels-photo-4816479.jpeg?auto=compress&cs=tinysrgb&w=1000')"></div>
+  <div>
+    <small style="font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#f3c9a6;font-weight:600">Nuestro café</small>
+    <h2>Pequeños lotes, tueste con cuidado</h2>
+    <p>Trabajamos directamente con familias productoras de la zona. Compramos su café a un precio justo y lo tostamos nosotros mismos, para que llegue fresco a su casa.</p>
+    <div class="steps">
+      <div class="st"><b>1</b><div><h4>Cosecha a mano</h4><p>Solo se recogen los granos maduros, uno por uno.</p></div></div>
+      <div class="st"><b>2</b><div><h4>Tueste semanal</h4><p>Tostamos en lotes pequeños para cuidar el sabor de cada origen.</p></div></div>
+      <div class="st"><b>3</b><div><h4>Empaque y envío</h4><p>Bolsas con válvula para conservar el aroma, directo a su puerta.</p></div></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="envios"><div class="wrap">
+  <div class="head"><small>Envíos y pagos</small><h2>Fácil de pedir, rápido de recibir</h2></div>
+  <div class="ship">
+    <div class="sh"><svg class="i"><use href="#i-truck"/></svg><h3>Envío a todo el país</h3><p>Por Correos de Costa Rica en 2 a 4 días hábiles. ₡2 500, o gratis en compras desde ₡25 000.</p></div>
+    <div class="sh"><svg class="i"><use href="#i-store"/></svg><h3>Retiro en tienda</h3><p>Pase por su pedido sin costo a nuestra tostadora en Grecia, Alajuela (dirección de muestra).</p></div>
+    <div class="sh"><svg class="i"><use href="#i-lock"/></svg><h3>Pago seguro</h3><p>SINPE Móvil, o tarjeta mediante una pasarela de pago segura. Nunca guardamos los datos de su tarjeta.</p></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap"><span>© El Mirador · Café de altura (negocio ficticio) · Página de muestra hecha por <a href="../../index.html">Kevin Campos</a></span><span>Fotos: <a href="https://www.pexels.com" target="_blank" rel="noopener">Pexels</a> (licencia libre)</span></div></footer>
+
+<!-- Carrito -->
+<div class="scrim" id="scrim" onclick="closeCart()"></div>
+<aside class="drawer" id="drawer" aria-label="Carrito">
+  <div class="dh"><h3>Su carrito</h3><button class="x" onclick="closeCart()" aria-label="Cerrar"><svg class="i"><use href="#i-x"/></svg></button></div>
+  <div class="db" id="lines"></div>
+  <div class="df">
+    <div class="tot"><span>Subtotal</span><span id="sub">₡0</span></div>
+    <div class="tot"><span>Envío</span><span id="shipCost">₡0</span></div>
+    <div class="note" id="freeNote"></div>
+    <div class="tot big"><span>Total</span><span id="total">₡0</span></div>
+    <button class="btn btn-t" id="goPay" onclick="openCheckout()">Continuar al pago</button>
+  </div>
+</aside>
+
+<!-- Pago -->
+<div class="modal" id="checkout"><div class="mb">
+  <button class="x" style="position:absolute;top:14px;right:14px" onclick="closeM('checkout')" aria-label="Cerrar"><svg class="i"><use href="#i-x"/></svg></button>
+  <h3>Finalizar compra</h3><p>Total a pagar: <b id="coTotal" style="color:var(--ink)"></b></p>
+  <form id="coForm">
+    <div class="f2"><div class="field"><label>Nombre completo</label><input id="cName" required></div><div class="field"><label>Teléfono</label><input id="cTel" required placeholder="8888-8888"></div></div>
+    <div class="f2">
+      <div class="field"><label>Entrega</label><select id="cShip"><option value="envio">Envío por Correos</option><option value="retiro">Retiro en tienda</option></select></div>
+      <div class="field"><label>Provincia</label><select id="cProv"><option>Alajuela</option><option>San José</option><option>Heredia</option><option>Cartago</option><option>Puntarenas</option><option>Guanacaste</option><option>Limón</option></select></div>
+    </div>
+    <div class="field" id="addrField"><label>Dirección exacta</label><input id="cAddr" placeholder="Distrito, señas"></div>
+    <label style="font-size:12.5px;font-weight:600;color:var(--muted)">Método de pago</label>
+    <div class="pay">
+      <label><input type="radio" name="pm" value="sinpe" checked><svg class="i"><use href="#i-phone"/></svg>SINPE Móvil</label>
+      <label><input type="radio" name="pm" value="card"><svg class="i"><use href="#i-card"/></svg>Tarjeta</label>
+    </div>
+    <div class="pinfo" id="pinfo"></div>
+    <button class="btn btn-g" style="width:100%" type="submit" id="coBtn">Confirmar pedido</button>
+  </form>
+</div></div>
+
+<!-- Resultado de la demo -->
+<div class="modal" id="done"><div class="mb">
+  <h3>Así funciona</h3>
+  <p id="doneText"></p>
+  <div class="bubble" id="bubble"></div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-t" id="wantBtn" target="_blank" rel="noopener">Quiero una tienda así</a><button class="btn btn-o" onclick="closeM('done')">Seguir viendo</button></div>
+</div></div>
+
+<div class="toast" id="toast"><svg class="i"><use href="#i-check"/></svg><span id="toastTxt"></span></div>
+
+<script>
+const KEVIN_WA="50670323812";
+const SINPE="8888-0000"; // número de ejemplo
+const PX=(id,w)=>`https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}&h=${w}&fit=crop`;
+const POUCH=12039675;
+const P=[
+ {id:"valle",c:"cafe",n:"Valle Occidental",notes:"Chocolate, caramelo y naranja dulce",tueste:"Medio",peso:"340 g",p:6500,band:"#b5653a",tag:"Más vendido"},
+ {id:"poas",c:"cafe",n:"Faldas del Poás",notes:"Frutos rojos, panela y acidez brillante",tueste:"Medio claro",peso:"340 g",p:7200,band:"#7a2e3a"},
+ {id:"honey",c:"cafe",n:"Proceso Honey",notes:"Miel, durazno y cuerpo sedoso",tueste:"Medio",peso:"340 g",p:7800,band:"#d79a2b",tag:"Edición limitada"},
+ {id:"oscuro",c:"cafe",n:"Tueste Oscuro",notes:"Cacao amargo, nuez tostada, cuerpo intenso",tueste:"Oscuro",peso:"340 g",p:6200,band:"#3b2a20"},
+ {id:"descaf",c:"cafe",n:"Descafeinado",notes:"Galleta, avellana y final suave",tueste:"Medio",peso:"340 g",p:6900,band:"#4f7a5a"},
+ {id:"kit",c:"acc",n:"Kit de chorreado",notes:"Gotero de cerámica, 40 filtros y medidor",peso:"Kit",p:14500,img:9784908},
+ {id:"granos",c:"cafe",n:"Valle Occidental 1 kg",notes:"Nuestro más vendido en tamaño familiar",tueste:"Medio",peso:"1 kg",p:16500,img:31945549,tag:"Ahorro"},
+ {id:"caja",c:"regalo",n:"Caja de regalo",notes:"Dos bolsas a escoger y tarjeta personalizada",peso:"2 × 340 g",p:15900,img:8015700,tag:"Para regalar"}
+];
+const fmt=n=>"₡"+Math.round(n).toLocaleString("es-CR").replace(/[,. ]/g," ");
+const $=id=>document.getElementById(id);
+let cart=[];
+try{cart=JSON.parse(localStorage.getItem("mirador_cart")||"[]")}catch(e){cart=[]}
+const save=()=>{try{localStorage.setItem("mirador_cart",JSON.stringify(cart))}catch(e){}};
+
+function imgOf(p,w=500){return PX(p.img||POUCH,w)}
+function labelOf(p){return p.img?"":`<div class="label"><div class="band" style="background:${p.band}"></div><b>${p.n}</b><small>El Mirador · ${p.peso}</small></div>`}
+
+$("grid").innerHTML=P.map(p=>`
+ <article class="prod" data-c="${p.c}">
+   <div class="pimg" style="background-image:url('${imgOf(p)}')">${p.tag?`<span class="badge">${p.tag}</span>`:""}${labelOf(p)}</div>
+   <div class="pb">
+     <h3>${p.n}</h3><div class="notes">${p.notes}</div>
+     <div class="meta">${p.tueste?`<span>Tueste ${p.tueste.toLowerCase()}</span>`:""}<span>${p.peso}</span></div>
+     ${p.c==="cafe"?`<select id="g-${p.id}" aria-label="Molienda"><option>En grano</option><option>Molido para chorreador</option><option>Molido para greca</option><option>Molido para espresso</option></select>`:""}
+     <div class="buy"><b>${fmt(p.p)}</b><button class="add" id="b-${p.id}" onclick="add('${p.id}')"><svg class="i" style="width:16px;height:16px"><use href="#i-plus"/></svg>Agregar</button></div>
+   </div>
+ </article>`).join("");
+
+$("tabs").onclick=e=>{const b=e.target.closest(".tab");if(!b)return;document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("on",t===b));document.querySelectorAll(".prod").forEach(p=>p.classList.toggle("hide",b.dataset.c!=="all"&&p.dataset.c!==b.dataset.c))};
+
+function add(id){
+  const g=$("g-"+id)?.value||""; const key=id+"|"+g;
+  const ex=cart.find(x=>x.key===key); ex?ex.q++:cart.push({key,id,g,q:1});
+  save();render();
+  const b=$("b-"+id); b.classList.add("ok"); b.lastChild.textContent="Agregado"; setTimeout(()=>{b.classList.remove("ok");b.lastChild.textContent="Agregar"},1200);
+  toast(P.find(p=>p.id===id).n+" agregado al carrito");
+}
+function chg(key,d){const it=cart.find(x=>x.key===key);if(!it)return;it.q+=d;if(it.q<=0)cart=cart.filter(x=>x!==it);save();render()}
+function totals(){
+  const sub=cart.reduce((s,it)=>s+P.find(p=>p.id===it.id).p*it.q,0);
+  const retiro=$("cShip")&&$("cShip").value==="retiro";
+  const ship=sub===0||retiro||sub>=25000?0:2500;
+  return {sub,ship,total:sub+ship};
+}
+function render(){
+  const n=cart.reduce((s,x)=>s+x.q,0); $("cartN").textContent=n;
+  $("lines").innerHTML=cart.length?cart.map(it=>{const p=P.find(x=>x.id===it.id);return `
+   <div class="line"><div class="th" style="background-image:url('${imgOf(p,160)}')"></div>
+     <div><b>${p.n}</b><small>${it.g||p.peso}</small><div class="qty"><button onclick="chg('${it.key}',-1)" aria-label="Quitar">−</button><span>${it.q}</span><button onclick="chg('${it.key}',1)" aria-label="Agregar">+</button></div></div>
+     <b>${fmt(p.p*it.q)}</b></div>`}).join(""):`<div class="empty">Su carrito está vacío.<br>Agregue un café para empezar.</div>`;
+  const t=totals();
+  $("sub").textContent=fmt(t.sub); $("shipCost").textContent=t.sub===0?"—":t.ship===0?"Gratis":fmt(t.ship); $("total").textContent=fmt(t.total);
+  $("freeNote").textContent=t.sub>0&&t.sub<25000?`Le faltan ${fmt(25000-t.sub)} para envío gratis`:"";
+  $("goPay").disabled=!cart.length; $("goPay").style.opacity=cart.length?1:.5;
+}
+function openCart(){$("drawer").classList.add("on");$("scrim").classList.add("on")}
+function closeCart(){$("drawer").classList.remove("on");$("scrim").classList.remove("on")}
+function closeM(id){$(id).classList.remove("open")}
+document.querySelectorAll(".modal").forEach(m=>m.addEventListener("click",e=>{if(e.target===m)m.classList.remove("open")}));
+let tt;function toast(t){$("toastTxt").textContent=t;$("toast").classList.add("on");clearTimeout(tt);tt=setTimeout(()=>$("toast").classList.remove("on"),1800)}
+
+function payInfo(){
+  const t=totals(); $("coTotal").textContent=fmt(t.total);
+  const pm=document.querySelector("input[name=pm]:checked").value;
+  $("addrField").style.display=$("cShip").value==="retiro"?"none":"block";
+  $("pinfo").innerHTML=pm==="sinpe"
+   ?`Haga un SINPE Móvil por <b>${fmt(t.total)}</b> al <b>${SINPE}</b> (número de ejemplo) a nombre de El Mirador. Al confirmar, su pedido se envía por WhatsApp y nos adjunta el comprobante.`
+   :`Al confirmar, se abre la <b>página de pago segura</b> de la pasarela (por ejemplo Tilopay u ONVO) para pagar <b>${fmt(t.total)}</b> con tarjeta. Esta tienda nunca ve ni guarda los datos de su tarjeta.`;
+  $("coBtn").textContent=pm==="sinpe"?"Confirmar y enviar comprobante":"Ir a pagar con tarjeta";
+}
+function openCheckout(){if(!cart.length)return;closeCart();payInfo();$("checkout").classList.add("open")}
+document.querySelectorAll("input[name=pm]").forEach(r=>r.addEventListener("change",payInfo));
+$("cShip").addEventListener("change",()=>{payInfo();render()});
+
+$("coForm").onsubmit=e=>{
+  e.preventDefault();
+  const t=totals(); const pm=document.querySelector("input[name=pm]:checked").value; const retiro=$("cShip").value==="retiro";
+  const items=cart.map(it=>{const p=P.find(x=>x.id===it.id);return `• ${it.q} × ${p.n}${it.g?" ("+it.g.toLowerCase()+")":""}: ${fmt(p.p*it.q)}`}).join("\n");
+  const msg=`Hola El Mirador, quiero hacer este pedido:\n\n${items}\n\nSubtotal: ${fmt(t.sub)}\nEnvío: ${t.ship?fmt(t.ship):"Gratis"}\nTotal: ${fmt(t.total)}\n\nNombre: ${$("cName").value}\nTeléfono: ${$("cTel").value}\nEntrega: ${retiro?"Retiro en tienda":"Envío a "+$("cProv").value+", "+($("cAddr").value||"...")}\nPago: ${pm==="sinpe"?"SINPE Móvil (adjunto comprobante)":"Tarjeta"}`;
+  $("doneText").innerHTML=pm==="sinpe"
+    ?"En la tienda real, el cliente hace el SINPE y este pedido le llega al WhatsApp del negocio, listo para despachar:"
+    :"En la tienda real, aquí se abriría la página de pago segura de la pasarela. Cuando el pago se aprueba, el negocio recibe este pedido:";
+  $("bubble").textContent=msg;
+  $("wantBtn").href=`https://wa.me/${KEVIN_WA}?text=${encodeURIComponent("Hola Kevin, vi la demo de la tienda de café y me interesa una tienda en línea así para mi negocio.")}`;
+  closeM("checkout"); $("done").classList.add("open");
+};
+render();
+</script>
+</body>
+</html>

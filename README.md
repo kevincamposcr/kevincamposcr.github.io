@@ -1,4 +1,4 @@
-# Kevin Campos · Diseño web
+# Kevin Campos Vega · Diseño web
 
 Portafolio y página de servicios de diseño web para negocios en Costa Rica.
 

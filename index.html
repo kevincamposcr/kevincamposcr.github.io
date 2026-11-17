@@ -3,219 +3,324 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Barbería Norte | Cortes y barba en Grecia (demo)</title>
-<meta name="description" content="Demo de página web para una barbería: servicios, precios y reserva de citas por WhatsApp.">
+<title>Kevin Campos · Páginas web para negocios en Costa Rica</title>
+<meta name="description" content="Diseño páginas web modernas para negocios de Grecia y todo Costa Rica: WhatsApp, Google Maps, catálogo, reservas y más. Vea mis trabajos y pida su demo gratis.">
+<meta property="og:title" content="Kevin Campos · Páginas web para negocios">
+<meta property="og:description" content="Páginas web modernas para negocios en Costa Rica. Pida su demo gratis.">
+<meta name="theme-color" content="#14123a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0d0d0d;--bg2:#161616;--card:#1c1c1c;--gold:#d4a24c;--gold2:#f0c674;--txt:#f2ede4;--muted:#9c958a;--line:#2a2a2a}
+:root{--ink:#14123a;--ink2:#221f55;--violet:#6c5ce7;--lime:#c6f432;--txt:#1d1b3a;--muted:#646487;--bg:#f7f7fb;--card:#fff;--line:#e6e6f0}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:80px}
-body{font-family:Inter,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6}
-h1,h2,h3{font-family:"Bebas Neue",sans-serif;font-weight:400;letter-spacing:1px;line-height:.95}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:Inter,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:"Space Grotesk",sans-serif;line-height:1.1;letter-spacing:-.6px}
 a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
-.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
-.demo-badge{background:var(--gold);color:#1a1205;font-size:13px;text-align:center;padding:8px;font-weight:600}
-.demo-badge a{text-decoration:underline;font-weight:800}
-header{position:sticky;top:0;z-index:40;background:rgba(13,13,13,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.nav{display:flex;justify-content:space-between;align-items:center;height:72px}
-.logo{font-family:"Bebas Neue";font-size:30px;letter-spacing:2px;display:flex;align-items:center;gap:10px}
-.logo span{color:var(--gold)}
-.pole{width:14px;height:36px;border-radius:7px;background:repeating-linear-gradient(135deg,#c0392b 0 6px,#fff 6px 12px,#2c5aa0 12px 18px,#fff 18px 24px);animation:pole 2s linear infinite;background-size:100% 34px}
-@keyframes pole{to{background-position:0 34px}}
-.nav ul{display:flex;gap:28px;list-style:none;font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:1px}
-.nav ul a:hover{color:var(--gold)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;border-radius:4px;font-weight:700;border:0;text-transform:uppercase;letter-spacing:1px;font-size:14px;transition:all .2s}
-.btn-gold{background:var(--gold);color:#111}.btn-gold:hover{background:var(--gold2)}
-.btn-out{border:1px solid var(--gold);color:var(--gold);background:transparent}.btn-out:hover{background:var(--gold);color:#111}
-.hero{min-height:calc(100vh - 110px);display:grid;align-items:center;position:relative;overflow:hidden;background:linear-gradient(90deg,rgba(13,13,13,.97) 35%,rgba(13,13,13,.55)),var(--img, none) center/cover no-repeat,radial-gradient(ellipse at 75% 40%,rgba(212,162,76,.18),transparent 55%),var(--bg)}
-.hero::after{content:"NORTE";position:absolute;right:-30px;bottom:-60px;font-family:"Bebas Neue";font-size:clamp(160px,28vw,380px);color:rgba(255,255,255,.03);line-height:1}
-.hero-in{position:relative;z-index:2;max-width:700px}
-.eyebrow{color:var(--gold);font-weight:700;letter-spacing:4px;text-transform:uppercase;font-size:13px;display:flex;align-items:center;gap:12px;margin-bottom:18px}
-.eyebrow::before{content:"";width:40px;height:2px;background:var(--gold)}
-.hero h1{font-size:clamp(64px,10vw,130px)}
-.hero h1 em{font-style:normal;color:var(--gold)}
-.hero p{color:var(--muted);font-size:18px;max-width:500px;margin:22px 0 32px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+
+header{position:sticky;top:0;z-index:50;background:rgba(247,247,251,.85);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s}
+header.sc{border-color:var(--line)}
+.nav{display:flex;justify-content:space-between;align-items:center;height:74px}
+.logo{display:flex;align-items:center;gap:11px;font-family:"Space Grotesk";font-weight:700;font-size:19px}
+.logo i{font-style:normal;width:40px;height:40px;border-radius:12px;background:var(--ink);color:var(--lime);display:grid;place-items:center;font-size:16px;font-weight:700;letter-spacing:-.5px}
+.logo small{display:block;font-family:Inter;font-weight:500;font-size:12px;color:var(--muted);margin-top:-2px}
+.menu{display:flex;gap:28px;list-style:none;font-weight:500;font-size:15px;color:var(--muted)}
+.menu a:hover{color:var(--txt)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 24px;border-radius:12px;font-weight:600;font-size:15px;border:0;transition:transform .15s,box-shadow .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-ink{background:var(--ink);color:#fff}.btn-ink:hover{box-shadow:0 12px 26px rgba(20,18,58,.25)}
+.btn-lime{background:var(--lime);color:var(--ink)}.btn-lime:hover{box-shadow:0 12px 26px rgba(198,244,50,.35)}
+.btn-wa{background:#25d366;color:#fff}
+.btn-ghost{background:#fff;border:1.5px solid var(--line);color:var(--txt)}
+.burger{display:none;background:none;border:0;width:40px;height:40px}
+
+.hero{padding:70px 0 80px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;width:700px;height:700px;right:-200px;top:-260px;background:radial-gradient(circle,rgba(108,92,231,.18),transparent 65%)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;position:relative}
+.avail{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);padding:7px 14px 7px 10px;border-radius:999px;font-size:13.5px;font-weight:600;margin-bottom:22px}
+.avail i{width:9px;height:9px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.18)}
+.hero h1{font-size:clamp(40px,5.6vw,68px);margin-bottom:20px}
+.hero h1 mark{background:linear-gradient(transparent 58%,var(--lime) 58%);color:inherit;padding:0 4px}
+.hero p{font-size:18.5px;color:var(--muted);max-width:540px;margin-bottom:30px}
 .ctas{display:flex;gap:12px;flex-wrap:wrap}
-.stats{display:flex;gap:46px;margin-top:56px}
-.stats b{font-family:"Bebas Neue";font-size:46px;color:var(--gold);display:block;line-height:1}
-.stats small{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:1px}
+.mini-proof{display:flex;gap:22px;margin-top:34px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.mini-proof span{display:flex;align-items:center;gap:7px}
+.stack{position:relative;height:470px}
+.browser{position:absolute;background:#fff;border-radius:14px;box-shadow:0 30px 60px rgba(20,18,58,.18);overflow:hidden;border:1px solid var(--line);transition:transform .4s}
+.browser .bar{height:28px;background:#f0f0f6;display:flex;align-items:center;gap:6px;padding:0 12px}
+.browser .bar i{width:9px;height:9px;border-radius:50%;background:#d6d6e2}
+.browser .bar i:first-child{background:#ff6b6b}.browser .bar i:nth-child(2){background:#ffd166}.browser .bar i:nth-child(3){background:#06d6a0}
+.browser .view{position:relative;overflow:hidden}
+.browser iframe{position:absolute;top:0;left:0;width:1280px;height:1600px;border:0;transform-origin:0 0;pointer-events:none}
+.b1{width:66%;left:0;top:30px;z-index:2;transform:rotate(-3deg)}
+.b2{width:60%;right:0;top:0;z-index:1;transform:rotate(3deg)}
+.b3{width:58%;right:6%;bottom:0;z-index:3;transform:rotate(-1deg)}
+.stack:hover .b1{transform:rotate(-5deg) translateX(-10px)}.stack:hover .b2{transform:rotate(5deg) translateX(10px)}
+
+.creds{background:var(--ink);color:#fff;padding:34px 0}
+.creds-g{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.cr{display:flex;gap:14px;align-items:center}
+.cr .ic{width:48px;height:48px;border-radius:14px;background:rgba(198,244,50,.12);display:grid;place-items:center;font-size:24px;flex-shrink:0}
+.cr b{font-family:"Space Grotesk";font-size:17px;display:block}
+.cr small{color:#a9a8d0;font-size:13px}
+
 section{padding:100px 0}
-.head{margin-bottom:50px}
-.head h2{font-size:clamp(48px,7vw,80px)}
-.head h2 span{color:var(--gold)}
-.head p{color:var(--muted);max-width:520px;margin-top:10px}
-.svc{display:grid;grid-template-columns:1fr 1fr;gap:0 60px}
-.row{display:flex;align-items:baseline;gap:12px;padding:22px 0;border-bottom:1px solid var(--line)}
-.row .n{font-weight:700;font-size:18px}
-.row .d{display:block;color:var(--muted);font-size:14px;font-weight:400}
-.row .dots{flex:1;border-bottom:2px dotted #3a3a3a;transform:translateY(-5px)}
-.row .p{font-family:"Bebas Neue";font-size:30px;color:var(--gold)}
-.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:230px;gap:12px}
-.ph{background:var(--img, none) center/cover no-repeat, repeating-linear-gradient(135deg,rgba(212,162,76,.05) 0 1px,transparent 1px 10px), linear-gradient(160deg,#262626,#111);position:relative;overflow:hidden;border-radius:4px}
-.ph::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(0,0,0,.75))}
-.ph .lbl{position:absolute;left:18px;bottom:16px;z-index:2;font-family:"Bebas Neue";font-size:24px;letter-spacing:1.5px}
-.ph .lbl small{display:block;font-family:Inter;font-size:11px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;font-weight:600}
-.ph .cap{position:absolute;top:14px;right:14px;z-index:2;font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:#6d6658;border:1px solid #333;padding:3px 8px;border-radius:3px}
-.ph.has-img .cap{display:none}
-.gal .big{grid-column:span 2;grid-row:span 2}
-.exp{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.exp .ph{aspect-ratio:4/5}
-.exp-list{display:grid;gap:0}
-.ex{display:grid;grid-template-columns:70px 1fr;gap:10px;padding:26px 0;border-bottom:1px solid var(--line)}
-.ex:first-child{border-top:1px solid var(--line)}
-.ex b{font-family:"Bebas Neue";font-size:40px;color:var(--gold);line-height:1;font-weight:400}
-.ex h3{font-size:28px;margin-bottom:6px}
-.ex p{color:var(--muted);font-size:15px}
-.book{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.book-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:start}
-.form{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:32px}
-.field{margin-bottom:16px}
-.field label{display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:8px}
-.field input,.field select{width:100%;background:#111;border:1px solid #333;border-radius:6px;padding:13px 14px;color:var(--txt);font:inherit}
-.field input:focus,.field select:focus{outline:none;border-color:var(--gold)}
-.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.slot{background:#111;border:1px solid #333;color:var(--txt);border-radius:6px;padding:10px 0;font-weight:600;font-size:14px}
-.slot.on{background:var(--gold);color:#111;border-color:var(--gold)}
-.slot:disabled{opacity:.3;text-decoration:line-through;cursor:not-allowed}
-.f2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.form .btn{width:100%;margin-top:6px}
-.check{list-style:none;display:grid;gap:14px;margin-top:26px}
-.check li{display:flex;gap:12px;color:var(--muted)}.check li b{color:var(--txt)}
-.check li::before{content:"✦";color:var(--gold)}
-.rev{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.rv{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:26px}
-.rv .st{color:var(--gold);letter-spacing:3px;margin-bottom:10px}
-.rv p{color:#cfc8bc;font-style:italic}
-.rv small{display:block;margin-top:14px;color:var(--muted)}
-.note{color:var(--muted);font-size:12.5px;margin-top:14px}
-.loc{display:grid;grid-template-columns:1fr 1.3fr;gap:30px}
-.loc table{width:100%;border-collapse:collapse}
-.loc td{padding:12px 0;border-bottom:1px solid var(--line)}
-.loc td:last-child{text-align:right;color:var(--gold);font-weight:600}
-.map{border-radius:8px;overflow:hidden;height:380px;border:1px solid var(--line);filter:grayscale(1) contrast(1.1)}
-.map iframe{width:100%;height:100%;border:0}
-footer{padding:34px 0;text-align:center;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
-footer a{color:var(--gold);font-weight:700}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;place-items:center;z-index:100;padding:20px}
-.modal.open{display:grid}
-.mb{background:var(--card);border:1px solid var(--gold);border-radius:10px;max-width:440px;width:100%;padding:28px}
-.mb h3{font-size:40px;color:var(--gold)}
-.mb p{color:var(--muted);font-size:14.5px;margin:6px 0 14px}
-.bubble{background:#1f3a2c;color:#d9f7e3;border-radius:12px 12px 2px 12px;padding:14px;font-size:14px;white-space:pre-wrap;margin-bottom:18px}
-.mb .btns{display:flex;gap:10px;flex-wrap:wrap}
-@media(max-width:900px){.svc,.book-grid,.loc,.exp,.rev{grid-template-columns:1fr}.gal{grid-template-columns:1fr 1fr}.gal .big{grid-column:span 2}.nav ul{display:none}.nav .btn{display:none}.stats{gap:26px}}
+.head{max-width:680px;margin-bottom:50px}
+.head.c{text-align:center;margin-left:auto;margin-right:auto}
+.kick{display:inline-block;font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--violet)}
+.head h2{font-size:clamp(32px,4.2vw,50px);margin:10px 0 14px}
+.head p{color:var(--muted);font-size:17px}
+
+.works{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.work{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column}
+.work:hover{transform:translateY(-6px);box-shadow:0 26px 50px rgba(20,18,58,.12)}
+.work .shot{position:relative;aspect-ratio:16/10;overflow:hidden;background:#eee;border-bottom:1px solid var(--line)}
+.work .shot iframe{position:absolute;top:0;left:0;width:1280px;height:800px;border:0;transform-origin:0 0;pointer-events:none}
+.work .shot::after{content:"Ver demo en vivo →";position:absolute;inset:0;background:rgba(20,18,58,.65);color:#fff;font-weight:700;display:grid;place-items:center;opacity:0;transition:opacity .3s}
+.work:hover .shot::after{opacity:1}
+.work .body{padding:24px 26px 26px;display:flex;flex-direction:column;gap:10px;flex:1}
+.work .type{font-size:12.5px;font-weight:700;color:var(--violet);text-transform:uppercase;letter-spacing:1px}
+.work h3{font-size:24px}
+.work p{color:var(--muted);font-size:15px}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.tags span{background:var(--bg);border:1px solid var(--line);padding:4px 11px;border-radius:999px;font-size:12.5px;font-weight:600}
+.note{margin-top:22px;color:var(--muted);font-size:14px;text-align:center}
+
+.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.f{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px}
+.f .ic{width:50px;height:50px;border-radius:14px;background:#efedff;display:grid;place-items:center;font-size:24px;margin-bottom:14px}
+.f h4{font-size:18px;margin-bottom:6px}.f p{color:var(--muted);font-size:14.5px}
+
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+.plan{background:#fff;border:1px solid var(--line);border-radius:24px;padding:32px;display:flex;flex-direction:column}
+.plan.hot{background:var(--ink);color:#fff;border-color:var(--ink);position:relative;transform:scale(1.03);box-shadow:0 30px 60px rgba(20,18,58,.25)}
+.plan.hot .muted,.plan.hot li{color:#c9c8ea}
+.badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--lime);color:var(--ink);font-weight:700;font-size:12.5px;padding:5px 14px;border-radius:999px}
+.plan h3{font-size:22px}
+.plan .muted{color:var(--muted);font-size:14.5px;margin:6px 0 18px}
+.price{font-family:"Space Grotesk";font-weight:700;font-size:42px;letter-spacing:-1px}
+.price small{font-size:15px;font-weight:500;color:var(--muted);letter-spacing:0}
+.plan.hot .price small{color:#a9a8d0}
+.plan ul{list-style:none;display:grid;gap:10px;margin:22px 0 28px;flex:1}
+.plan li{display:flex;gap:10px;font-size:15px;color:var(--muted)}
+.plan li::before{content:"✓";color:var(--violet);font-weight:800}
+.plan.hot li::before{color:var(--lime)}
+.plan .btn{width:100%}
+.terms{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-top:34px;color:var(--muted);font-size:14.5px}
+.terms span{display:flex;gap:8px;align-items:center}
+
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s}
+.step{position:relative;padding:28px 24px;background:#fff;border:1px solid var(--line);border-radius:18px}
+.step::before{counter-increment:s;content:counter(s);width:42px;height:42px;border-radius:12px;background:var(--lime);color:var(--ink);display:grid;place-items:center;font-family:"Space Grotesk";font-weight:700;font-size:18px;margin-bottom:14px}
+.step h4{font-size:18px;margin-bottom:6px}.step p{color:var(--muted);font-size:14.5px}
+
+.about{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.about-g{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:center}
+.photo{aspect-ratio:4/5;border-radius:28px;background:linear-gradient(150deg,var(--ink),var(--violet));display:grid;place-items:center;color:var(--lime);font-family:"Space Grotesk";font-weight:700;font-size:110px;position:relative;overflow:hidden}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo .tagp{position:absolute;bottom:18px;left:18px;right:18px;background:rgba(255,255,255,.95);color:var(--txt);border-radius:14px;padding:12px 16px;font-size:14px;font-weight:600;font-family:Inter;display:flex;gap:10px;align-items:center}
+.about h2{font-size:clamp(30px,3.8vw,44px);margin:10px 0 18px}
+.about p{color:var(--muted);font-size:16.5px;margin-bottom:14px}
+.extra{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.extra span{background:var(--bg);border:1px solid var(--line);padding:8px 14px;border-radius:12px;font-size:14px;font-weight:600}
+
+.faq{max-width:820px;margin:0 auto;display:grid;gap:12px}
+.q{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.q button{width:100%;background:none;border:0;padding:20px 24px;text-align:left;font-weight:600;font-size:16.5px;display:flex;justify-content:space-between;gap:16px;color:var(--txt)}
+.q button i{font-style:normal;width:28px;height:28px;border-radius:50%;background:var(--bg);display:grid;place-items:center;flex-shrink:0;transition:transform .3s,background .3s}
+.q.open button i{transform:rotate(45deg);background:var(--lime)}
+.q .a{max-height:0;overflow:hidden;transition:max-height .35s}
+.q .a p{padding:0 24px 20px;color:var(--muted)}
+
+.cta{background:var(--ink);color:#fff;border-radius:30px;padding:60px;text-align:center;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;width:500px;height:500px;left:-150px;top:-250px;background:radial-gradient(circle,rgba(108,92,231,.5),transparent 65%)}
+.cta::after{content:"";position:absolute;width:400px;height:400px;right:-120px;bottom:-220px;background:radial-gradient(circle,rgba(198,244,50,.25),transparent 65%)}
+.cta *{position:relative;z-index:1}
+.cta h2{font-size:clamp(30px,4.2vw,48px);margin-bottom:14px}
+.cta p{color:#c9c8ea;font-size:17px;max-width:560px;margin:0 auto 28px}
+
+footer{padding:40px 0;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.wa-fab{position:fixed;right:22px;bottom:22px;width:60px;height:60px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 12px 28px rgba(37,211,102,.45);z-index:60;transition:transform .2s}
+.wa-fab:hover{transform:scale(1.08)}
+
+@media(max-width:980px){.hero-grid,.about-g{grid-template-columns:1fr}.stack{height:380px;max-width:560px;margin:0 auto;width:100%}.creds-g{grid-template-columns:1fr 1fr}.feat,.plans{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}.plan.hot{transform:none}
+ .menu{display:none;position:absolute;top:74px;left:0;right:0;background:#fff;flex-direction:column;padding:22px;gap:16px;border-bottom:1px solid var(--line)}.menu.open{display:flex}.burger{display:grid;place-items:center}.photo{max-width:380px}}
+@media(max-width:640px){.works,.feat,.plans,.steps,.creds-g{grid-template-columns:1fr}.nav .btn{display:none}.cta{padding:40px 24px}section{padding:76px 0}.stack{height:300px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
-<div class="demo-badge">Proyecto de muestra · Negocio ficticio · Diseñado por Kevin Campos · <a href="../../index.html">Ver portafolio</a></div>
-<header><div class="wrap nav">
-  <a href="#" class="logo"><div class="pole"></div>Barbería <span>Norte</span></a>
-  <ul><li><a href="#servicios">Servicios</a></li><li><a href="#trabajos">Trabajos</a></li><li><a href="#experiencia">Experiencia</a></li><li><a href="#ubicacion">Ubicación</a></li></ul>
-  <a href="#reservar" class="btn btn-gold">Reservar cita</a>
+
+<!-- ================================================================
+  EDITE AQUÍ RÁPIDO:
+  - Su número de WhatsApp: busque "50670323812" (aparece en el script al final)
+  - Precios: sección "paquetes"
+  - Su foto: guarde una foto como "foto.jpg" junto a este archivo y
+    quite los comentarios de la etiqueta <img> en la sección "Sobre mí"
+================================================================= -->
+
+<header id="hdr"><div class="wrap nav">
+  <a href="#" class="logo"><i>KC</i><div>Kevin Campos<small>Diseño web · Grecia, CR</small></div></a>
+  <ul class="menu" id="menu">
+    <li><a href="#trabajos">Trabajos</a></li><li><a href="#paquetes">Precios</a></li><li><a href="#proceso">Proceso</a></li><li><a href="#sobre-mi">Sobre mí</a></li><li><a href="#faq">Preguntas</a></li>
+  </ul>
+  <a class="btn btn-ink" href="#" data-wa="Hola Kevin, vi tu portafolio y me interesa una página web para mi negocio.">Hablemos</a>
+  <button class="burger" id="burger" aria-label="Menú"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#14123a" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
 </div></header>
 
-<section class="hero" style="--img:url(img/hero.jpg)"><div class="wrap"><div class="hero-in">
-  <div class="eyebrow">Grecia · Alajuela</div>
-  <h1>Estilo que<br><em>habla por vos</em></h1>
-  <p>Cortes modernos, fades, perfilado de barba y afeitado con toalla caliente. Reserve su espacio en segundos y llegue sin hacer fila.</p>
-  <div class="ctas"><a href="#reservar" class="btn btn-gold">Reservar ahora</a><a href="#servicios" class="btn btn-out">Ver precios</a></div>
-  <div class="stats"><div><b>8+</b><small>Años de oficio</small></div><div><b>+5k</b><small>Cortes al año</small></div><div><b>7</b><small>Días a la semana</small></div></div>
-</div></div></section>
-
-<section id="servicios"><div class="wrap">
-  <div class="head"><h2>Servicios <span>&amp; precios</span></h2><p>Precios claros, sin sorpresas. Todos los servicios incluyen lavado y peinado final.</p></div>
-  <div class="svc" id="svcList"></div>
-</div></section>
-
-<section id="trabajos" style="padding-top:0"><div class="wrap">
-  <div class="head"><h2>Nuestros <span>trabajos</span></h2><p>Cada corte, a la medida de su estilo.</p></div>
-  <div class="gal">
-    <div class="ph big" style="--img:url(img/corte-1.jpg)"><span class="cap">Foto</span><span class="lbl"><small>Especialidad</small>Skin fade + diseño</span></div>
-    <div class="ph" style="--img:url(img/corte-2.jpg)"><span class="cap">Foto</span><span class="lbl"><small>Barba</small>Perfilado completo</span></div>
-    <div class="ph" style="--img:url(img/corte-3.jpg)"><span class="cap">Foto</span><span class="lbl"><small>Clásico</small>Tijera y peine</span></div>
-    <div class="ph" style="--img:url(img/corte-4.jpg)"><span class="cap">Foto</span><span class="lbl"><small>Ritual</small>Afeitado a navaja</span></div>
-    <div class="ph" style="--img:url(img/corte-5.jpg)"><span class="cap">Foto</span><span class="lbl"><small>Moderno</small>Texturizado</span></div>
-  </div>
-</div></section>
-
-<section id="experiencia" style="padding-top:0"><div class="wrap exp">
-  <div class="ph" style="--img:url(img/local.jpg)"><span class="cap">Foto</span><span class="lbl"><small>Grecia centro</small>El local</span></div>
-  <div>
-    <div class="head" style="margin-bottom:24px"><h2>La experiencia <span>Norte</span></h2></div>
-    <div class="exp-list">
-      <div class="ex"><b>01</b><div><h3>Asesoría de estilo</h3><p>Antes de cortar le recomendamos lo que mejor va con su tipo de cabello y facciones.</p></div></div>
-      <div class="ex"><b>02</b><div><h3>Toalla caliente</h3><p>Cada servicio de barba incluye toalla caliente y productos de calidad.</p></div></div>
-      <div class="ex"><b>03</b><div><h3>Puntualidad</h3><p>Con cita, llega y se sienta. Sin filas ni esperas largas.</p></div></div>
+<section class="hero"><div class="wrap hero-grid">
+  <div class="rv">
+    <span class="avail"><i></i>Disponible para nuevos proyectos</span>
+    <h1>Páginas web que le traen <mark>clientes</mark> a su negocio</h1>
+    <p>Diseño páginas modernas, rápidas y fáciles de usar desde el celular, para negocios de Grecia y todo Costa Rica. Con WhatsApp, Google Maps, catálogo o reservas en línea.</p>
+    <div class="ctas">
+      <a href="#trabajos" class="btn btn-ink">Ver mis trabajos →</a>
+      <a href="#" class="btn btn-wa" data-wa="Hola Kevin, quisiera una demo gratis de una página para mi negocio.">💬 Pedir demo gratis</a>
     </div>
+    <div class="mini-proof"><span>✅ Vea su página antes de pagar</span><span>📱 100% adaptada a celular</span><span>🇨🇷 Atención local</span></div>
+  </div>
+  <div class="stack rv" aria-hidden="true">
+    <div class="browser b2"><div class="bar"><i></i><i></i><i></i></div><div class="view"><iframe src="demos/barberia-norte/index.html" loading="lazy" tabindex="-1" title=""></iframe></div></div>
+    <div class="browser b1"><div class="bar"><i></i><i></i><i></i></div><div class="view"><iframe src="demos/soda-la-esquina/index.html" loading="lazy" tabindex="-1" title=""></iframe></div></div>
+    <div class="browser b3"><div class="bar"><i></i><i></i><i></i></div><div class="view"><iframe src="demos/veterinaria-patitas/index.html" loading="lazy" tabindex="-1" title=""></iframe></div></div>
   </div>
 </div></section>
 
-<section class="book" id="reservar"><div class="wrap book-grid">
-  <div>
-    <div class="head" style="margin-bottom:10px"><h2>Reserve <span>su cita</span></h2><p>Elija servicio, barbero y hora. Le confirmamos por WhatsApp en minutos.</p></div>
-    <ul class="check"><li><span><b>Sin filas:</b> llegue a su hora y lo atendemos.</span></li><li><span><b>Recordatorio:</b> le escribimos el día anterior.</span></li><li><span><b>Pago:</b> SINPE Móvil, tarjeta o efectivo.</span></li></ul>
-  </div>
-  <form class="form" id="bookForm">
-    <div class="f2">
-      <div class="field"><label>Nombre</label><input id="bn" required placeholder="Su nombre"></div>
-      <div class="field"><label>Servicio</label><select id="bs"></select></div>
-    </div>
-    <div class="f2">
-      <div class="field"><label>Barbero</label><select id="bb"><option>Cualquiera disponible</option><option>Barbero 1</option><option>Barbero 2</option><option>Barbero 3</option></select></div>
-      <div class="field"><label>Fecha</label><input type="date" id="bd" required></div>
-    </div>
-    <div class="field"><label>Hora disponible</label><div class="slots" id="slots"></div></div>
-    <button class="btn btn-gold" type="submit">Confirmar por WhatsApp</button>
-  </form>
-</div></section>
-
-<section><div class="wrap">
-  <div class="head"><h2>Lo que <span>dicen</span></h2></div>
-  <div class="rev">
-    <div class="rv"><div class="st">★★★★★</div><p>"Excelente fade, puntuales y muy buen ambiente."</p><small>Cliente de ejemplo</small></div>
-    <div class="rv"><div class="st">★★★★★</div><p>"Reservé por WhatsApp y llegué directo a la silla."</p><small>Cliente de ejemplo</small></div>
-    <div class="rv"><div class="st">★★★★★</div><p>"El afeitado con toalla caliente vale cada colón."</p><small>Cliente de ejemplo</small></div>
-  </div>
-  <p class="note">* Reseñas de ejemplo para esta demo. En la página real se muestran las reseñas reales del negocio en Google.</p>
-</div></section>
-
-<section id="ubicacion" style="padding-top:0"><div class="wrap loc">
-  <div>
-    <div class="head" style="margin-bottom:20px"><h2>Visí<span>tenos</span></h2><p>Grecia centro, Alajuela (dirección de muestra).</p></div>
-    <table><tr><td>Lunes a viernes</td><td>9:00 – 20:00</td></tr><tr><td>Sábado</td><td>8:00 – 20:00</td></tr><tr><td>Domingo</td><td>9:00 – 15:00</td></tr></table>
-    <div style="display:flex;gap:10px;margin-top:22px;flex-wrap:wrap"><a class="btn btn-out" href="https://www.google.com/maps/search/?api=1&query=Grecia+Alajuela" target="_blank" rel="noopener">Google Maps</a><a class="btn btn-out" href="https://waze.com/ul?q=Grecia%20Alajuela" target="_blank" rel="noopener">Waze</a></div>
-  </div>
-  <div class="map"><iframe src="https://maps.google.com/maps?q=Grecia%20Alajuela%20Costa%20Rica&z=15&output=embed" loading="lazy" title="Mapa"></iframe></div>
-</div></section>
-
-<footer>© Barbería Norte (negocio ficticio) · Página de muestra hecha por <a href="../../index.html">Kevin Campos</a></footer>
-
-<div class="modal" id="modal"><div class="mb">
-  <h3>¡Así funciona!</h3>
-  <p>En la página real, esta reserva le llega directo al WhatsApp de la barbería:</p>
-  <div class="bubble" id="bubble"></div>
-  <div class="btns"><a class="btn btn-gold" id="wantBtn" target="_blank" rel="noopener">Quiero una página así</a><button class="btn btn-out" onclick="closeModal()">Cerrar</button></div>
+<div class="creds"><div class="wrap creds-g">
+  <div class="cr rv"><div class="ic">🌏</div><div><b>Top 20 mundial</b><small>WorldSkills Shanghái 2026</small></div></div>
+  <div class="cr rv"><div class="ic">🏅</div><div><b>4.º de América</b><small>WorldSkills Américas, Chile 2025</small></div></div>
+  <div class="cr rv"><div class="ic">🥇</div><div><b>1.º nacional 2025</b><small>Admin. de Sistemas de Redes TI</small></div></div>
+  <div class="cr rv"><div class="ic">🎓</div><div><b>Egresado del INA</b><small>Tecnologías de información</small></div></div>
 </div></div>
 
+<section id="trabajos"><div class="wrap">
+  <div class="head rv"><span class="kick">Trabajos</span><h2>Proyectos de muestra</h2><p>Cada página está pensada para un tipo de negocio distinto. Ábralas y pruébelas: los formularios y botones funcionan como en una página real.</p></div>
+  <div class="works" id="works"></div>
+  <p class="note rv">* Son negocios ficticios creados para mostrar mi trabajo. Su negocio podría ser el primero de esta lista 😉</p>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="head c rv"><span class="kick">Qué incluye</span><h2>Todo lo que su página necesita</h2></div>
+  <div class="feat">
+    <div class="f rv"><div class="ic">💬</div><h4>Botones de WhatsApp</h4><p>Sus clientes le escriben con un toque, con el mensaje ya armado.</p></div>
+    <div class="f rv"><div class="ic">📍</div><h4>Mapa, Google Maps y Waze</h4><p>Que lleguen sin perderse, con la ruta a un clic.</p></div>
+    <div class="f rv"><div class="ic">📱</div><h4>Perfecta en celular</h4><p>La mayoría de sus clientes la verán desde el teléfono.</p></div>
+    <div class="f rv"><div class="ic">🔎</div><h4>Lista para Google</h4><p>Configurada para que su negocio aparezca en las búsquedas.</p></div>
+    <div class="f rv"><div class="ic">⚡</div><h4>Rápida y segura</h4><p>Carga en segundos y con candado de seguridad (HTTPS).</p></div>
+    <div class="f rv"><div class="ic">🛒</div><h4>Catálogo, menú o reservas</h4><p>Según su negocio: productos, pedidos o citas en línea.</p></div>
+  </div>
+</div></section>
+
+<section id="paquetes" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
+  <div class="head c rv"><span class="kick">Precios</span><h2>Paquetes claros, sin letra pequeña</h2><p>Precios de referencia. Le cotizo exacto según lo que necesite su negocio.</p></div>
+  <div class="plans">
+    <div class="plan rv"><h3>Página básica</h3><p class="muted">Ideal para empezar a tener presencia en internet.</p><div class="price">₡75 000 <small>pago único</small></div>
+      <ul><li>Página de una sección completa</li><li>WhatsApp, Facebook e Instagram</li><li>Mapa, horario y contacto</li><li>Adaptada a celular</li><li>Publicación incluida</li></ul>
+      <a href="#" class="btn btn-ghost" data-wa="Hola Kevin, me interesa el paquete de Página básica.">Elegir básica</a></div>
+    <div class="plan hot rv"><span class="badge">⭐ Más pedido</span><h3>Página negocio</h3><p class="muted">Para negocios que quieren vender y recibir pedidos.</p><div class="price">₡150 000 <small>pago único</small></div>
+      <ul><li>Todo lo de la básica</li><li>Catálogo, menú o servicios con precios</li><li>Formulario de pedidos, citas o cotizaciones</li><li>Preguntas frecuentes y galería</li><li>Opción bilingüe (español / inglés)</li></ul>
+      <a href="#" class="btn btn-lime" data-wa="Hola Kevin, me interesa el paquete de Página negocio.">Elegir negocio</a></div>
+    <div class="plan rv"><h3>Mantenimiento</h3><p class="muted">Su página siempre al día, sin preocuparse de nada.</p><div class="price">₡12 000 <small>/ mes</small></div>
+      <ul><li>Hasta 3 cambios pequeños al mes</li><li>Actualizar precios, horarios y promos</li><li>Revisión de que todo funcione</li><li>Soporte por WhatsApp</li></ul>
+      <a href="#" class="btn btn-ghost" data-wa="Hola Kevin, me interesa el plan de mantenimiento mensual.">Consultar</a></div>
+  </div>
+  <div class="terms rv"><span>✅ Demo gratis antes de pagar</span><span>💳 50% al iniciar, 50% al entregar</span><span>🌐 El dominio queda a nombre suyo</span></div>
+</div></section>
+
+<section id="proceso"><div class="wrap">
+  <div class="head c rv"><span class="kick">Proceso</span><h2>Así trabajamos juntos</h2></div>
+  <div class="steps">
+    <div class="step rv"><h4>Hablamos</h4><p>Me cuenta de su negocio por WhatsApp: qué vende, a quién y qué necesita.</p></div>
+    <div class="step rv"><h4>Demo gratis</h4><p>Le preparo una muestra de su página para que la vea antes de decidir.</p></div>
+    <div class="step rv"><h4>Ajustes</h4><p>Cambiamos colores, textos y fotos hasta que quede como usted quiere.</p></div>
+    <div class="step rv"><h4>¡En línea!</h4><p>La publico con su dominio y le enseño cómo compartirla.</p></div>
+  </div>
+</div></section>
+
+<section class="about" id="sobre-mi"><div class="wrap about-g">
+  <div class="photo rv">KC
+    <!-- <img src="foto.jpg" alt="Kevin Campos"> -->
+    <div class="tagp">📍 Grecia, Alajuela · Costa Rica</div>
+  </div>
+  <div class="rv">
+    <span class="kick">Sobre mí</span>
+    <h2>Hola, soy Kevin Campos 👋</h2>
+    <p>Soy técnico en tecnologías de información egresado del INA. Representé a Costa Rica en WorldSkills en Administración de Sistemas de Redes TI: fui primer lugar nacional en 2025, cuarto de América en Chile y quedé entre los 20 mejores del mundo en Shanghái 2026.</p>
+    <p>Hoy uso esa experiencia para ayudar a negocios locales a tener una presencia profesional en internet, con páginas modernas, seguras y pensadas para conseguir clientes.</p>
+    <div class="extra"><span>🌐 Páginas web</span><span>📶 Redes y Wi-Fi</span><span>🖥️ Soporte técnico</span><span>📧 Correo con dominio propio</span></div>
+  </div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <div class="head c rv"><span class="kick">Preguntas frecuentes</span><h2>Dudas comunes</h2></div>
+  <div class="faq rv" id="faqList"></div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="cta rv">
+    <h2>¿Listo para que su negocio esté en internet?</h2>
+    <p>Escríbame y le preparo una demo gratis de su página. Sin compromiso.</p>
+    <a href="#" class="btn btn-lime" data-wa="Hola Kevin, quisiera una demo gratis de una página para mi negocio.">💬 Escribirme por WhatsApp</a>
+  </div>
+</div></section>
+
+<footer><div class="wrap"><span>© <span id="yr"></span> Kevin Campos · Diseño web en Grecia, Costa Rica</span><span>WhatsApp: 7032-3812</span></div></footer>
+
+<a class="wa-fab" href="#" data-wa="Hola Kevin, vi tu portafolio y me interesa una página web para mi negocio." aria-label="WhatsApp"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zM20.5 3.5A11.8 11.8 0 0 0 1.9 17.7L.2 24l6.4-1.7A11.8 11.8 0 0 0 24 12c0-3.2-1.2-6.2-3.5-8.5z"/></svg></a>
+
 <script>
-const KEVIN_WA="50670323812";
-const svcs=[["Corte clásico","Tijera y máquina, acabado limpio",5000],["Fade / degradado","Low, mid o high fade",6000],["Corte + barba","El combo más pedido",8500],["Perfilado de barba","Con navaja y toalla caliente",4000],["Afeitado clásico","Navaja, toalla caliente y bálsamo",5000],["Corte de niño","Hasta 12 años",4000],["Diseño / líneas","Detalles a navaja",1500],["Cejas","Limpieza con navaja",1500]];
-const fmt=n=>"₡"+n.toLocaleString("es-CR").replace(/,/g," ");
-document.getElementById("svcList").innerHTML=svcs.map(s=>`<div class="row"><span class="n">${s[0]}<span class="d">${s[1]}</span></span><span class="dots"></span><span class="p">${fmt(s[2])}</span></div>`).join("");
-document.getElementById("bs").innerHTML=svcs.map(s=>`<option>${s[0]} (${fmt(s[2])})</option>`).join("");
-const bd=document.getElementById("bd");bd.valueAsDate=new Date();bd.min=bd.value;
-let slot=null;
-function drawSlots(){const taken=["10:00","13:00","16:30"];const hs=["9:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","16:30","17:00","18:00","19:00"];document.getElementById("slots").innerHTML=hs.map(h=>`<button type="button" class="slot" ${taken.includes(h)?"disabled":""} data-h="${h}">${h}</button>`).join("");slot=null}
-drawSlots();bd.onchange=drawSlots;
-document.getElementById("slots").onclick=e=>{const b=e.target.closest(".slot");if(!b||b.disabled)return;document.querySelectorAll(".slot").forEach(s=>s.classList.toggle("on",s===b));slot=b.dataset.h};
-document.getElementById("bookForm").onsubmit=e=>{e.preventDefault();if(!slot){alert("Elija una hora disponible");return}
- const f=new Date(bd.value+"T12:00").toLocaleDateString("es-CR",{weekday:"long",day:"numeric",month:"long"});
- showDemo(`Hola Barbería Norte, quiero reservar:\n\n• Nombre: ${document.getElementById("bn").value}\n• Servicio: ${document.getElementById("bs").value}\n• Barbero: ${document.getElementById("bb").value}\n• Día: ${f}\n• Hora: ${slot}`)};
-function showDemo(msg){document.getElementById("bubble").textContent=msg;document.getElementById("wantBtn").href=`https://wa.me/${KEVIN_WA}?text=${encodeURIComponent("Hola Kevin, vi la demo de la barbería y me interesa una página así para mi negocio.")}`;document.getElementById("modal").classList.add("open")}
-document.querySelectorAll('.ph').forEach(el=>{const m=(el.getAttribute('style')||'').match(/url\(([^)]+)\)/);if(!m)return;const im=new Image();im.onload=()=>el.classList.add('has-img');im.src=m[1]});
-function closeModal(){document.getElementById("modal").classList.remove("open")}
-document.getElementById("modal").onclick=e=>{if(e.target.id==="modal")closeModal()};
+/* ===== CONFIGURACIÓN ===== */
+const WHATSAPP = "50670323812";   // su número con 506 adelante
+const TRABAJOS = [
+  {url:"demos/soda-la-esquina/",tipo:"Restaurante · Soda",n:"Soda La Esquina",d:"Menú con pedidos express: el cliente arma su orden y le llega lista por WhatsApp.",tags:["Pedidos por WhatsApp","Plato del día automático","Menú por categorías"]},
+  {url:"demos/barberia-norte/",tipo:"Belleza · Barbería",n:"Barbería Norte",d:"Estilo oscuro y elegante con lista de precios y reserva de citas con horarios disponibles.",tags:["Reserva de citas","Lista de precios","Galería"]},
+  {url:"demos/veterinaria-patitas/",tipo:"Salud · Veterinaria",n:"Veterinaria Patitas",d:"Diseño amigable con citas en línea, banner de emergencias, consejos y preguntas frecuentes.",tags:["Agendar citas","Emergencias 24/7","Preguntas frecuentes"]},
+  {url:"demos/taller-hermanos-solis/",tipo:"Automotriz · Taller",n:"Taller Hermanos Solís",d:"Página bilingüe (español / inglés) con formulario de cotización, ideal para clientes extranjeros.",tags:["Bilingüe ES / EN","Cotizaciones","Proceso transparente"]}
+];
+const PREGUNTAS = [
+  ["¿Cómo sé que esto no es una estafa?","Usted ve una demo de su página antes de pagar un solo colón. Luego paga solo el 50% para empezar y el resto cuando la página ya está lista y a su gusto. Además, el dominio queda registrado a nombre suyo, no al mío."],
+  ["¿Cuánto tiempo tarda?","Una página básica suele estar lista en pocos días. Las páginas con catálogo, reservas o dos idiomas pueden tardar un poco más, según cuánta información haya que preparar."],
+  ["¿Necesito saber de computadoras?","Para nada. Usted me manda la información y las fotos por WhatsApp y yo me encargo de todo: diseño, publicación y configuración."],
+  ["¿Qué es el dominio y cuánto cuesta?","Es el nombre de su página, por ejemplo minegocio.com. Se paga una vez al año directamente al proveedor, a nombre suyo. Le explico las opciones y le ayudo a comprarlo."],
+  ["¿Puedo hacer cambios después?","Claro. Con el plan de mantenimiento los cambios pequeños están incluidos cada mes. Si no tiene el plan, se cotizan por aparte."],
+  ["¿Solo trabaja con negocios de Grecia?","No. Trabajo con negocios de todo Costa Rica: todo se puede coordinar por WhatsApp."]
+];
+/* ========================= */
+
+const wa = m => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(m)}`;
+document.querySelectorAll("[data-wa]").forEach(a=>{a.href=wa(a.dataset.wa);a.target="_blank";a.rel="noopener"});
+
+document.getElementById("works").innerHTML = TRABAJOS.map(t=>`
+  <a class="work rv" href="${t.url}index.html" target="_blank" rel="noopener">
+    <div class="shot"><iframe src="${t.url}index.html" tabindex="-1" title="Vista previa de ${t.n}"></iframe></div>
+    <div class="body"><span class="type">${t.tipo}</span><h3>${t.n}</h3><p>${t.d}</p><div class="tags">${t.tags.map(x=>`<span>${x}</span>`).join("")}</div></div>
+  </a>`).join("");
+
+const fl=document.getElementById("faqList");
+fl.innerHTML=PREGUNTAS.map(([q,a])=>`<div class="q"><button>${q}<i>+</i></button><div class="a"><p>${a}</p></div></div>`).join("");
+fl.onclick=e=>{const b=e.target.closest("button");if(!b)return;const q=b.parentElement,a=q.querySelector(".a"),o=q.classList.toggle("open");a.style.maxHeight=o?a.scrollHeight+"px":0};
+
+/* Escala las vistas previas para que quepan en su recuadro */
+function fit(){
+  document.querySelectorAll(".work .shot, .browser .view").forEach(box=>{
+    const ifr=box.querySelector("iframe"); const s=box.clientWidth/1280;
+    ifr.style.transform=`scale(${s})`;
+    if(box.classList.contains("view")) box.style.height=(box.clientWidth*0.62)+"px";
+  });
+}
+addEventListener("resize",fit); fit();
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll(".rv").forEach(el=>io.observe(el));
+
+const menu=document.getElementById("menu");
+document.getElementById("burger").onclick=()=>menu.classList.toggle("open");
+menu.querySelectorAll("a").forEach(a=>a.onclick=()=>menu.classList.remove("open"));
+addEventListener("scroll",()=>document.getElementById("hdr").classList.toggle("sc",scrollY>10),{passive:true});
+document.getElementById("yr").textContent=new Date().getFullYear();
 </script>
 </body>
 </html>

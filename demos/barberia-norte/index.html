@@ -79,6 +79,12 @@ section{padding:100px 0}
 .slot{background:#111;border:1px solid #333;color:var(--txt);border-radius:6px;padding:10px 0;font-weight:600;font-size:14px}
 .slot.on{background:var(--gold);color:#111;border-color:var(--gold)}
 .slot:disabled{opacity:.3;text-decoration:line-through;cursor:not-allowed}
+.slot.mine{opacity:1;text-decoration:none;background:transparent;border:1px dashed var(--gold);color:var(--gold)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;font-size:12.5px;color:#9a9a9a;align-items:center}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px;border:1px solid #333;background:#111}
+.legend i.o{opacity:.35}.legend i.m{border:1px dashed var(--gold);background:transparent}
+.legend button{background:none;border:0;color:var(--gold);font-size:12.5px;text-decoration:underline;cursor:pointer;padding:0;margin-left:auto}
+.booked-note{background:#111;border:1px solid #333;border-left:3px solid var(--gold);border-radius:6px;padding:10px 12px;font-size:13px;color:#bbb;margin:-4px 0 16px}
 .f2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .form .btn{width:100%;margin-top:6px}
 .check{list-style:none;display:grid;gap:14px;margin-top:26px}
@@ -166,7 +172,7 @@ footer a{color:var(--gold);font-weight:700}
       <div class="field"><label>Barbero</label><select id="bb"><option>Cualquiera disponible</option><option>Barbero 1</option><option>Barbero 2</option><option>Barbero 3</option></select></div>
       <div class="field"><label>Fecha</label><input type="date" id="bd" required></div>
     </div>
-    <div class="field"><label>Hora disponible</label><div class="slots" id="slots"></div></div>
+    <div class="field"><label>Hora disponible</label><div class="slots" id="slots"></div><div class="legend"><span><i></i>Disponible</span><span><i class="o"></i>Ocupada</span><span><i class="m"></i>Su reserva</span><button type="button" id="resetDemo">Reiniciar demo</button></div></div>
     <button class="btn btn-gold" type="submit">Confirmar por WhatsApp</button>
   </form>
 </div></section>
@@ -196,6 +202,7 @@ footer a{color:var(--gold);font-weight:700}
   <h3>¡Así funciona!</h3>
   <p>En la página real, esta reserva le llega directo al WhatsApp de la barbería:</p>
   <div class="bubble" id="bubble"></div>
+  <p class="booked-note" id="bookedNote" hidden></p>
   <div class="btns"><a class="btn btn-gold" id="wantBtn" target="_blank" rel="noopener">Quiero una página así</a><button class="btn btn-out" onclick="closeModal()">Cerrar</button></div>
 </div></div>
 
@@ -207,12 +214,24 @@ document.getElementById("svcList").innerHTML=svcs.map(s=>`<div class="row"><span
 document.getElementById("bs").innerHTML=svcs.map(s=>`<option>${s[0]} (${fmt(s[2])})</option>`).join("");
 const bd=document.getElementById("bd");bd.valueAsDate=new Date();bd.min=bd.value;
 let slot=null;
-function drawSlots(){const taken=["10:00","13:00","16:30"];const hs=["9:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","16:30","17:00","18:00","19:00"];document.getElementById("slots").innerHTML=hs.map(h=>`<button type="button" class="slot" ${taken.includes(h)?"disabled":""} data-h="${h}">${h}</button>`).join("");slot=null}
+const HS={sem:["9:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00"],sab:["8:00","9:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00"],dom:["9:00","10:00","11:00","12:00","13:00","14:00"]};
+const KEY="barberia-norte-reservas";
+let booked={};try{booked=JSON.parse(localStorage.getItem(KEY))||{}}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(booked))}catch(e){}}
+function hoursFor(d){const w=new Date(d+"T12:00").getDay();return w===0?HS.dom:w===6?HS.sab:HS.sem}
+function baseTaken(d,hs){let x=0;for(const c of d)x=(x*31+c.charCodeAt(0))%9973;const out=[];for(let i=0;i<3;i++){x=(x*17+7)%9973;const h=hs[x%hs.length];if(!out.includes(h))out.push(h)}return out}
+function isPast(d,h){const now=new Date();const t=new Date(d+"T"+h.padStart(5,"0"));return t<now}
+function drawSlots(){const d=bd.value;if(!d)return;const hs=hoursFor(d),taken=baseTaken(d,hs),mine=booked[d]||[];
+ document.getElementById("slots").innerHTML=hs.map(h=>{const m=mine.includes(h),off=m||taken.includes(h)||isPast(d,h);return `<button type="button" class="slot${m?" mine":""}" ${off?"disabled":""} data-h="${h}" title="${m?"Su reserva":off?"No disponible":"Disponible"}">${h}</button>`}).join("");slot=null}
 drawSlots();bd.onchange=drawSlots;
+document.getElementById("resetDemo").onclick=()=>{booked={};save();drawSlots()};
 document.getElementById("slots").onclick=e=>{const b=e.target.closest(".slot");if(!b||b.disabled)return;document.querySelectorAll(".slot").forEach(s=>s.classList.toggle("on",s===b));slot=b.dataset.h};
 document.getElementById("bookForm").onsubmit=e=>{e.preventDefault();if(!slot){alert("Elija una hora disponible");return}
- const f=new Date(bd.value+"T12:00").toLocaleDateString("es-CR",{weekday:"long",day:"numeric",month:"long"});
- showDemo(`Hola Barbería Norte, quiero reservar:\n\n• Nombre: ${document.getElementById("bn").value}\n• Servicio: ${document.getElementById("bs").value}\n• Barbero: ${document.getElementById("bb").value}\n• Día: ${f}\n• Hora: ${slot}`)};
+ const d=bd.value,h=slot;
+ const f=new Date(d+"T12:00").toLocaleDateString("es-CR",{weekday:"long",day:"numeric",month:"long"});
+ (booked[d]=booked[d]||[]).push(h);save();drawSlots();
+ const n=document.getElementById("bookedNote");n.hidden=false;n.textContent=`La hora de las ${h} quedó marcada como ocupada. En esta demo solo se marca en su pantalla; en la página real se bloquea para todos los clientes con el sistema de citas.`;
+ showDemo(`Hola Barbería Norte, quiero reservar:\n\n• Nombre: ${document.getElementById("bn").value}\n• Servicio: ${document.getElementById("bs").value}\n• Barbero: ${document.getElementById("bb").value}\n• Día: ${f}\n• Hora: ${h}`)};
 function showDemo(msg){document.getElementById("bubble").textContent=msg;document.getElementById("wantBtn").href=`https://wa.me/${KEVIN_WA}?text=${encodeURIComponent("Hola Kevin, vi la demo de la barbería y me interesa una página así para mi negocio.")}`;document.getElementById("modal").classList.add("open")}
 document.querySelectorAll('.ph').forEach(el=>{const m=(el.getAttribute('style')||'').match(/url\(([^)]+)\)/);if(!m)return;const im=new Image();im.onload=()=>el.classList.add('has-img');im.src=m[1]});
 function closeModal(){document.getElementById("modal").classList.remove("open")}

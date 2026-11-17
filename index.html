@@ -28,7 +28,7 @@ header{position:sticky;top:0;z-index:40;background:rgba(13,13,13,.9);backdrop-fi
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;border-radius:4px;font-weight:700;border:0;text-transform:uppercase;letter-spacing:1px;font-size:14px;transition:all .2s}
 .btn-gold{background:var(--gold);color:#111}.btn-gold:hover{background:var(--gold2)}
 .btn-out{border:1px solid var(--gold);color:var(--gold);background:transparent}.btn-out:hover{background:var(--gold);color:#111}
-.hero{min-height:calc(100vh - 110px);display:grid;align-items:center;position:relative;overflow:hidden;background:radial-gradient(ellipse at 75% 40%,rgba(212,162,76,.18),transparent 55%),var(--bg)}
+.hero{min-height:calc(100vh - 110px);display:grid;align-items:center;position:relative;overflow:hidden;background:linear-gradient(90deg,rgba(13,13,13,.97) 35%,rgba(13,13,13,.55)),var(--img, none) center/cover no-repeat,radial-gradient(ellipse at 75% 40%,rgba(212,162,76,.18),transparent 55%),var(--bg)}
 .hero::after{content:"NORTE";position:absolute;right:-30px;bottom:-60px;font-family:"Bebas Neue";font-size:clamp(160px,28vw,380px);color:rgba(255,255,255,.03);line-height:1}
 .hero-in{position:relative;z-index:2;max-width:700px}
 .eyebrow{color:var(--gold);font-weight:700;letter-spacing:4px;text-transform:uppercase;font-size:13px;display:flex;align-items:center;gap:12px;margin-bottom:18px}
@@ -51,19 +51,22 @@ section{padding:100px 0}
 .row .d{display:block;color:var(--muted);font-size:14px;font-weight:400}
 .row .dots{flex:1;border-bottom:2px dotted #3a3a3a;transform:translateY(-5px)}
 .row .p{font-family:"Bebas Neue";font-size:30px;color:var(--gold)}
-.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:14px}
-.g{border-radius:6px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:20px;background:linear-gradient(160deg,#2a2a2a,#121212)}
-.g::before{content:attr(data-e);position:absolute;inset:0;display:grid;place-items:center;font-size:80px;opacity:.85;transition:transform .5s}
-.g:hover::before{transform:scale(1.15)}
-.g span{position:relative;font-family:"Bebas Neue";font-size:26px;letter-spacing:1px;background:rgba(0,0,0,.55);padding:2px 10px;border-left:3px solid var(--gold)}
-.g.big{grid-column:span 2;grid-row:span 2;background:linear-gradient(160deg,#3a2c14,#121212)}
-.g.big::before{font-size:150px}
-.team{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.tm{background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden}
-.tm .ph{height:240px;display:grid;place-items:center;font-size:90px;background:linear-gradient(160deg,#2b2b2b,#141414)}
-.tm .b{padding:22px}
-.tm h3{font-size:34px}.tm small{color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:12px}
-.tm p{color:var(--muted);font-size:14.5px;margin-top:6px}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:230px;gap:12px}
+.ph{background:var(--img, none) center/cover no-repeat, repeating-linear-gradient(135deg,rgba(212,162,76,.05) 0 1px,transparent 1px 10px), linear-gradient(160deg,#262626,#111);position:relative;overflow:hidden;border-radius:4px}
+.ph::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(0,0,0,.75))}
+.ph .lbl{position:absolute;left:18px;bottom:16px;z-index:2;font-family:"Bebas Neue";font-size:24px;letter-spacing:1.5px}
+.ph .lbl small{display:block;font-family:Inter;font-size:11px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;font-weight:600}
+.ph .cap{position:absolute;top:14px;right:14px;z-index:2;font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:#6d6658;border:1px solid #333;padding:3px 8px;border-radius:3px}
+.ph.has-img .cap{display:none}
+.gal .big{grid-column:span 2;grid-row:span 2}
+.exp{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.exp .ph{aspect-ratio:4/5}
+.exp-list{display:grid;gap:0}
+.ex{display:grid;grid-template-columns:70px 1fr;gap:10px;padding:26px 0;border-bottom:1px solid var(--line)}
+.ex:first-child{border-top:1px solid var(--line)}
+.ex b{font-family:"Bebas Neue";font-size:40px;color:var(--gold);line-height:1;font-weight:400}
+.ex h3{font-size:28px;margin-bottom:6px}
+.ex p{color:var(--muted);font-size:15px}
 .book{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .book-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:start}
 .form{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:32px}
@@ -101,23 +104,23 @@ footer a{color:var(--gold);font-weight:700}
 .mb p{color:var(--muted);font-size:14.5px;margin:6px 0 14px}
 .bubble{background:#1f3a2c;color:#d9f7e3;border-radius:12px 12px 2px 12px;padding:14px;font-size:14px;white-space:pre-wrap;margin-bottom:18px}
 .mb .btns{display:flex;gap:10px;flex-wrap:wrap}
-@media(max-width:900px){.svc,.book-grid,.loc,.team,.rev{grid-template-columns:1fr}.gal{grid-template-columns:1fr 1fr}.g.big{grid-column:span 2}.nav ul{display:none}.nav .btn{display:none}.stats{gap:26px}}
+@media(max-width:900px){.svc,.book-grid,.loc,.exp,.rev{grid-template-columns:1fr}.gal{grid-template-columns:1fr 1fr}.gal .big{grid-column:span 2}.nav ul{display:none}.nav .btn{display:none}.stats{gap:26px}}
 </style>
 </head>
 <body>
-<div class="demo-badge">🧪 Proyecto de muestra · Negocio ficticio · Diseñado por Kevin Campos · <a href="../../index.html">Ver portafolio</a></div>
+<div class="demo-badge">Proyecto de muestra · Negocio ficticio · Diseñado por Kevin Campos · <a href="../../index.html">Ver portafolio</a></div>
 <header><div class="wrap nav">
   <a href="#" class="logo"><div class="pole"></div>Barbería <span>Norte</span></a>
-  <ul><li><a href="#servicios">Servicios</a></li><li><a href="#trabajos">Trabajos</a></li><li><a href="#equipo">Equipo</a></li><li><a href="#ubicacion">Ubicación</a></li></ul>
+  <ul><li><a href="#servicios">Servicios</a></li><li><a href="#trabajos">Trabajos</a></li><li><a href="#experiencia">Experiencia</a></li><li><a href="#ubicacion">Ubicación</a></li></ul>
   <a href="#reservar" class="btn btn-gold">Reservar cita</a>
 </div></header>
 
-<section class="hero"><div class="wrap"><div class="hero-in">
+<section class="hero" style="--img:url(img/hero.jpg)"><div class="wrap"><div class="hero-in">
   <div class="eyebrow">Grecia · Alajuela</div>
   <h1>Estilo que<br><em>habla por vos</em></h1>
   <p>Cortes modernos, fades, perfilado de barba y afeitado con toalla caliente. Reserve su espacio en segundos y llegue sin hacer fila.</p>
-  <div class="ctas"><a href="#reservar" class="btn btn-gold">✂ Reservar ahora</a><a href="#servicios" class="btn btn-out">Ver precios</a></div>
-  <div class="stats"><div><b>8+</b><small>Años de oficio</small></div><div><b>3</b><small>Barberos</small></div><div><b>7</b><small>Días a la semana</small></div></div>
+  <div class="ctas"><a href="#reservar" class="btn btn-gold">Reservar ahora</a><a href="#servicios" class="btn btn-out">Ver precios</a></div>
+  <div class="stats"><div><b>8+</b><small>Años de oficio</small></div><div><b>+5k</b><small>Cortes al año</small></div><div><b>7</b><small>Días a la semana</small></div></div>
 </div></div></section>
 
 <section id="servicios"><div class="wrap">
@@ -126,22 +129,25 @@ footer a{color:var(--gold);font-weight:700}
 </div></section>
 
 <section id="trabajos" style="padding-top:0"><div class="wrap">
-  <div class="head"><h2>Nuestros <span>trabajos</span></h2><p>Aquí iría la galería con fotos reales de los cortes del negocio.</p></div>
+  <div class="head"><h2>Nuestros <span>trabajos</span></h2><p>Cada corte, a la medida de su estilo.</p></div>
   <div class="gal">
-    <div class="g big" data-e="💈"><span>Skin fade + diseño</span></div>
-    <div class="g" data-e="🧔"><span>Barba completa</span></div>
-    <div class="g" data-e="✂️"><span>Corte clásico</span></div>
-    <div class="g" data-e="🪒"><span>Afeitado navaja</span></div>
-    <div class="g" data-e="👦"><span>Corte niño</span></div>
+    <div class="ph big" style="--img:url(img/corte-1.jpg)"><span class="cap">Foto</span><span class="lbl"><small>Especialidad</small>Skin fade + diseño</span></div>
+    <div class="ph" style="--img:url(img/corte-2.jpg)"><span class="cap">Foto</span><span class="lbl"><small>Barba</small>Perfilado completo</span></div>
+    <div class="ph" style="--img:url(img/corte-3.jpg)"><span class="cap">Foto</span><span class="lbl"><small>Clásico</small>Tijera y peine</span></div>
+    <div class="ph" style="--img:url(img/corte-4.jpg)"><span class="cap">Foto</span><span class="lbl"><small>Ritual</small>Afeitado a navaja</span></div>
+    <div class="ph" style="--img:url(img/corte-5.jpg)"><span class="cap">Foto</span><span class="lbl"><small>Moderno</small>Texturizado</span></div>
   </div>
 </div></section>
 
-<section id="equipo" style="padding-top:0"><div class="wrap">
-  <div class="head"><h2>El <span>equipo</span></h2></div>
-  <div class="team">
-    <div class="tm"><div class="ph">🧔🏽</div><div class="b"><small>Fundador</small><h3>Andrés</h3><p>Especialista en fades y diseños a navaja.</p></div></div>
-    <div class="tm"><div class="ph">👨🏻‍🦱</div><div class="b"><small>Barbero</small><h3>Daniel</h3><p>Cortes clásicos y perfilado de barba.</p></div></div>
-    <div class="tm"><div class="ph">👨🏾</div><div class="b"><small>Barbero</small><h3>José</h3><p>Texturizados, rizos y cortes modernos.</p></div></div>
+<section id="experiencia" style="padding-top:0"><div class="wrap exp">
+  <div class="ph" style="--img:url(img/local.jpg)"><span class="cap">Foto</span><span class="lbl"><small>Grecia centro</small>El local</span></div>
+  <div>
+    <div class="head" style="margin-bottom:24px"><h2>La experiencia <span>Norte</span></h2></div>
+    <div class="exp-list">
+      <div class="ex"><b>01</b><div><h3>Asesoría de estilo</h3><p>Antes de cortar le recomendamos lo que mejor va con su tipo de cabello y facciones.</p></div></div>
+      <div class="ex"><b>02</b><div><h3>Toalla caliente</h3><p>Cada servicio de barba incluye toalla caliente y productos de calidad.</p></div></div>
+      <div class="ex"><b>03</b><div><h3>Puntualidad</h3><p>Con cita, llega y se sienta. Sin filas ni esperas largas.</p></div></div>
+    </div>
   </div>
 </div></section>
 
@@ -156,7 +162,7 @@ footer a{color:var(--gold);font-weight:700}
       <div class="field"><label>Servicio</label><select id="bs"></select></div>
     </div>
     <div class="f2">
-      <div class="field"><label>Barbero</label><select id="bb"><option>Cualquiera</option><option>Andrés</option><option>Daniel</option><option>José</option></select></div>
+      <div class="field"><label>Barbero</label><select id="bb"><option>Cualquiera disponible</option><option>Barbero 1</option><option>Barbero 2</option><option>Barbero 3</option></select></div>
       <div class="field"><label>Fecha</label><input type="date" id="bd" required></div>
     </div>
     <div class="field"><label>Hora disponible</label><div class="slots" id="slots"></div></div>
@@ -205,8 +211,9 @@ drawSlots();bd.onchange=drawSlots;
 document.getElementById("slots").onclick=e=>{const b=e.target.closest(".slot");if(!b||b.disabled)return;document.querySelectorAll(".slot").forEach(s=>s.classList.toggle("on",s===b));slot=b.dataset.h};
 document.getElementById("bookForm").onsubmit=e=>{e.preventDefault();if(!slot){alert("Elija una hora disponible");return}
  const f=new Date(bd.value+"T12:00").toLocaleDateString("es-CR",{weekday:"long",day:"numeric",month:"long"});
- showDemo(`Hola Barbería Norte 💈 Quiero reservar:\n\n• Nombre: ${document.getElementById("bn").value}\n• Servicio: ${document.getElementById("bs").value}\n• Barbero: ${document.getElementById("bb").value}\n• Día: ${f}\n• Hora: ${slot}`)};
+ showDemo(`Hola Barbería Norte, quiero reservar:\n\n• Nombre: ${document.getElementById("bn").value}\n• Servicio: ${document.getElementById("bs").value}\n• Barbero: ${document.getElementById("bb").value}\n• Día: ${f}\n• Hora: ${slot}`)};
 function showDemo(msg){document.getElementById("bubble").textContent=msg;document.getElementById("wantBtn").href=`https://wa.me/${KEVIN_WA}?text=${encodeURIComponent("Hola Kevin, vi la demo de la barbería y me interesa una página así para mi negocio.")}`;document.getElementById("modal").classList.add("open")}
+document.querySelectorAll('.ph').forEach(el=>{const m=(el.getAttribute('style')||'').match(/url\(([^)]+)\)/);if(!m)return;const im=new Image();im.onload=()=>el.classList.add('has-img');im.src=m[1]});
 function closeModal(){document.getElementById("modal").classList.remove("open")}
 document.getElementById("modal").onclick=e=>{if(e.target.id==="modal")closeModal()};
 </script>

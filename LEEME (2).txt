@@ -1,0 +1,9 @@
+Ponga aquí las fotos con estos nombres exactos (formato .jpg):
+hero.jpg       -> plato principal (casado), foto vertical
+plato-dia.jpg  -> el plato del día
+local-1.jpg    -> el local por dentro (foto grande)
+local-2.jpg    -> desayuno típico
+local-3.jpg    -> taza de café
+local-4.jpg    -> cocina / cocinera
+local-5.jpg    -> frescos naturales
+Si una foto no está, la página muestra un fondo de color en su lugar.

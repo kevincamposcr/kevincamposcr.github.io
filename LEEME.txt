@@ -1,0 +1,9 @@
+Ponga aquí las fotos con estos nombres exactos (formato .jpg):
+hero.jpg     -> fondo de la portada (barbería oscura, horizontal)
+corte-1.jpg  -> fade con diseño (foto grande)
+corte-2.jpg  -> perfilado de barba
+corte-3.jpg  -> corte clásico con tijera
+corte-4.jpg  -> afeitado con navaja
+corte-5.jpg  -> corte texturizado
+local.jpg    -> el local / sillas de barbería, foto vertical
+Si una foto no está, la página muestra un fondo oscuro en su lugar.

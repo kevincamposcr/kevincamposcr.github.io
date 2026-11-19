@@ -74,6 +74,7 @@ section{padding:100px 0}
 .head p{color:var(--muted);font-size:17px}
 
 .works{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.works .work:last-child:nth-child(odd){grid-column:1 / -1;justify-self:center;width:calc(50% - 13px)}
 .work{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column}
 .work:hover{transform:translateY(-6px);box-shadow:0 26px 50px rgba(20,18,58,.12)}
 .work .shot{position:relative;aspect-ratio:16/10;overflow:hidden;background:#eee;border-bottom:1px solid var(--line)}
@@ -150,7 +151,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 
 @media(max-width:980px){.hero-grid,.about-g{grid-template-columns:1fr}.stack{height:380px;max-width:560px;margin:0 auto;width:100%}.creds-g{grid-template-columns:1fr 1fr}.feat,.plans{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}.plan.hot{transform:none}
  .menu{display:none;position:absolute;top:74px;left:0;right:0;background:#fff;flex-direction:column;padding:22px;gap:16px;border-bottom:1px solid var(--line)}.menu.open{display:flex}.burger{display:grid;place-items:center}.photo{max-width:380px}}
-@media(max-width:640px){.works,.feat,.plans,.steps,.creds-g{grid-template-columns:1fr}.nav .btn{display:none}.cta{padding:40px 24px}section{padding:76px 0}.stack{height:300px}}
+@media(max-width:640px){.works,.feat,.plans,.steps,.creds-g{grid-template-columns:1fr}.works .work:last-child{width:auto}.nav .btn{display:none}.cta{padding:40px 24px}section{padding:76px 0}.stack{height:300px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}.rv{opacity:1;transform:none}}
 .i{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;vertical-align:-.15em}
 .creds .ic{color:var(--lime)}
@@ -283,7 +284,6 @@ const WHATSAPP = "50670323812";   // su número con 506 adelante
 const TRABAJOS = [
   {url:"https://monteluz-motor-hub.base44.app/",img:"img/autos-monteluz.jpg",tipo:"Automotriz · Agencia de carros",n:"Autos Monteluz",d:"Página completa para agencia de carros usados: inventario que la agencia actualiza desde su propio panel, calculadora de financiamiento, chat de consultas y solicitudes de tasación.",tags:["Panel para subir carros","Chat de consultas","Calculadora de cuota"]},
   {url:"demos/cafe-el-mirador/",tipo:"Tienda en línea · Café",n:"El Mirador · Café de altura",d:"Tienda con carrito de compras, envío a todo el país y pago por SINPE Móvil o con tarjeta.",tags:["Carrito de compras","SINPE Móvil y tarjeta","Envíos"]},
-  {url:"demos/autos-del-valle/",tipo:"Automotriz · Agencia de carros",n:"Autos del Valle",d:"Catálogo de carros usados con filtros por tipo, marca y precio, ficha de cada carro y calculadora de cuota.",tags:["Catálogo con filtros","Calculadora de cuota","Fotos reales"]},
   {url:"demos/soda-la-esquina/",tipo:"Restaurante · Soda",n:"Soda La Esquina",d:"Menú con pedidos express: el cliente arma su orden y le llega lista por WhatsApp.",tags:["Pedidos por WhatsApp","Plato del día automático","Menú por categorías"]},
   {url:"demos/barberia-norte/",tipo:"Belleza · Barbería",n:"Barbería Norte",d:"Estilo oscuro y elegante con lista de precios y reserva de citas con horarios disponibles.",tags:["Reserva de citas","Lista de precios","Galería"]},
   {url:"demos/veterinaria-patitas/",tipo:"Salud · Veterinaria",n:"Veterinaria Patitas",d:"Diseño amigable con citas en línea, banner de emergencias, consejos y preguntas frecuentes.",tags:["Agendar citas","Emergencias 24/7","Preguntas frecuentes"]},

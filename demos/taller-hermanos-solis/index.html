@@ -76,7 +76,7 @@ header{position:sticky;top:0;z-index:40;background:rgba(243,239,230,.94);backdro
 .hs.on circle.dot{fill:var(--ink)}
 .hs.on circle.ring{stroke:var(--ink)}
 @keyframes ping{0%{transform:scale(1);opacity:.6}80%,100%{transform:scale(2.2);opacity:0}}
-.info{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;padding:16px 18px;border-top:1px solid var(--line)}
+.info{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;padding:16px 18px;border-top:1px solid var(--line)}
 .info .n{width:44px;height:44px;background:var(--orange);color:#fff;display:grid;place-items:center;font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:16px;border-radius:2px}
 .info h3{font-size:20px;font-weight:800;margin-bottom:2px}
 .info p{color:var(--muted);font-size:14.5px;line-height:1.45}
@@ -98,16 +98,16 @@ section{padding:92px 0}
 .sh p{color:var(--ink2);font-size:17px}
 .sh .mono{color:var(--orange-d);display:block;margin-bottom:12px}
 /* tabla de servicios */
-.svc{border-top:1.5px solid var(--ink)}
-.row{display:grid;grid-template-columns:70px 1.1fr 1.6fr 130px 150px;gap:18px;align-items:center;padding:20px 6px;border-bottom:1px solid var(--line);transition:background .15s}
-.row:hover{background:var(--card)}
-.row .num{font-family:"IBM Plex Mono",monospace;color:var(--muted);font-size:14px}
-.row h3{font-size:21px;font-weight:800}
-.row p{color:var(--muted);font-size:15px}
-.row .t{display:flex;gap:7px;align-items:center;color:var(--ink2);font-size:14px}
-.row .t .i{width:17px;height:17px;color:var(--muted)}
-.row .p{text-align:right;font-family:Archivo,sans-serif;font-stretch:112%;font-weight:800;font-size:18px}
-.row .p small{display:block;font-family:"IBM Plex Sans",sans-serif;font-weight:500;font-size:12px;color:var(--muted);font-stretch:100%}
+.svc{display:grid;grid-template-columns:repeat(3,1fr);border-top:1.5px solid var(--ink);border-left:1px solid var(--line)}
+.sc{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 24px 22px;display:flex;flex-direction:column;gap:8px;transition:background .15s}
+.sc:hover{background:var(--card)}
+.sc .num{font-family:"IBM Plex Mono",monospace;color:var(--orange-d);font-size:13px}
+.sc h3{font-size:22px;font-weight:800}
+.sc p{color:var(--muted);font-size:15px}
+.sc ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 10px}
+.sc li{font-size:12.5px;border:1px solid var(--line);background:var(--paper);padding:3px 9px;border-radius:999px;color:var(--ink2)}
+.sc .go{margin-top:auto;align-self:flex-start;background:none;border:0;padding:0;color:var(--ink);font-weight:700;font-size:14.5px;display:inline-flex;gap:6px;align-items:center;border-bottom:2px solid var(--orange)}
+.sc .go:hover{color:var(--orange-d)}
 .note{color:var(--muted);font-size:13px;margin-top:14px}
 /* orden de trabajo */
 .order-sec{background:var(--ink);color:var(--paper)}
@@ -190,8 +190,7 @@ footer a{text-decoration:underline}
 @media(max-width:980px){
  .hero .wrap,.order-wrap,.track-wrap,.quote,.loc,.sh{grid-template-columns:1fr}
  .nav ul{display:none}
- .row{grid-template-columns:44px 1fr auto;grid-template-areas:"n h p" "n d d" "n t t";row-gap:4px}
- .row .num{grid-area:n;align-self:start;padding-top:4px}.row h3{grid-area:h}.row p{grid-area:d}.row .t{grid-area:t}.row .p{grid-area:p}
+ .svc{grid-template-columns:1fr 1fr}
  .stamp{width:96px;height:96px;right:14px;bottom:-30px}.stamp div{width:78px;height:78px}.stamp b{font-size:14px}
 }
 @media(max-width:600px){
@@ -200,6 +199,7 @@ footer a{text-decoration:underline}
  .info{grid-template-columns:auto 1fr}.info .pr{grid-column:2;text-align:left}
  .specs b{font-size:20px}.specs span{font-size:12.5px}.pill{align-self:flex-start}
  .f2{grid-template-columns:1fr}
+ .svc{grid-template-columns:1fr}
  .ticket{padding:24px 18px}
  .step{grid-template-columns:26px 1fr}.step .mono{grid-column:2;margin-top:2px}
  .stamp{display:none}
@@ -277,11 +277,11 @@ footer a{text-decoration:underline}
 
 <section id="servicios"><div class="wrap">
   <div class="sh rv">
-    <div><span class="mono" data-es="01 — Servicios" data-en="01 — Services">01 — Servicios</span><h2 data-es="Lo que hacemos, y cuánto cuesta" data-en="What we do, and what it costs">Lo que hacemos, y cuánto cuesta</h2></div>
-    <p data-es="Precios de referencia para que sepa a qué atenerse. El precio final se lo confirmamos por WhatsApp después del diagnóstico, antes de empezar." data-en="Reference prices so you know what to expect. We confirm the final price over WhatsApp after the diagnosis, before we start.">Precios de referencia para que sepa a qué atenerse. El precio final se lo confirmamos por WhatsApp después del diagnóstico, antes de empezar.</p>
+    <div><span class="mono" data-es="01 — Servicios" data-en="01 — Services">01 — Servicios</span><h2 data-es="Lo que hacemos" data-en="What we do">Lo que hacemos</h2></div>
+    <p data-es="Mecánica general para todas las marcas. Cada trabajo empieza con un diagnóstico y el precio se lo confirmamos por WhatsApp antes de empezar." data-en="General repair for all makes. Every job starts with a diagnosis, and we confirm the price on WhatsApp before we start.">Mecánica general para todas las marcas. Cada trabajo empieza con un diagnóstico y el precio se lo confirmamos por WhatsApp antes de empezar.</p>
   </div>
   <div class="svc" id="svcTable"></div>
-  <p class="note" data-es="Precios de ejemplo para esta demo." data-en="Sample prices for this demo.">Precios de ejemplo para esta demo.</p>
+  
 </div></section>
 
 <section id="proceso" class="order-sec"><div class="wrap">
@@ -378,17 +378,17 @@ let lang="es";
 const $=id=>document.getElementById(id);
 const fmt=n=>"₡"+n.toLocaleString("es-CR").replace(/[,.\u202f\u00a0]/g," ");
 const SVC=[
- {id:1,x:205,y:175,es:["Motor","Afinado, fugas, sobrecalentamiento y ruidos extraños."],en:["Engine","Tune-ups, leaks, overheating and strange noises."],t:["1 día","1 day"],p:35000},
- {id:2,x:181,y:248,es:["Frenos","Pastillas, discos, tambores y líquido de frenos."],en:["Brakes","Pads, rotors, drums and brake fluid."],t:["3 horas","3 hours"],p:25000},
- {id:3,x:622,y:180,es:["Suspensión","Amortiguadores, rótulas, bujes y terminales."],en:["Suspension","Shocks, ball joints, bushings and tie rods."],t:["1 día","1 day"],p:30000},
- {id:4,x:622,y:248,es:["Alineación y llantas","Alineación, balanceo y rotación de llantas."],en:["Alignment & tires","Alignment, balancing and tire rotation."],t:["1 hora","1 hour"],p:15000},
- {id:5,x:345,y:140,es:["Aire acondicionado","Recarga de gas, fugas y limpieza del sistema."],en:["Air conditioning","Recharge, leak repair and system cleaning."],t:["2 horas","2 hours"],p:20000},
- {id:6,x:490,y:135,es:["Diagnóstico con escáner","Lectura de códigos y revisión de luces del tablero."],en:["Scanner diagnostics","Code reading and dashboard warning lights."],t:["45 min","45 min"],p:12000}
+ {id:1,x:205,y:175,es:["Motor","Afinado, fugas, sobrecalentamiento y ruidos extraños."],en:["Engine","Tune-ups, leaks, overheating and strange noises."],i:{es:["Afinado", "Fugas de aceite y agua", "Sobrecalentamiento"],en:["Tune-ups", "Oil and coolant leaks", "Overheating"]}},
+ {id:2,x:181,y:248,es:["Frenos","Pastillas, discos, tambores y líquido de frenos."],en:["Brakes","Pads, rotors, drums and brake fluid."],i:{es:["Pastillas y discos", "Tambores", "Líquido de frenos"],en:["Pads and rotors", "Drums", "Brake fluid"]}},
+ {id:3,x:622,y:180,es:["Suspensión","Amortiguadores, rótulas, bujes y terminales."],en:["Suspension","Shocks, ball joints, bushings and tie rods."],i:{es:["Amortiguadores", "Rótulas y bujes", "Terminales"],en:["Shocks", "Ball joints and bushings", "Tie rods"]}},
+ {id:4,x:622,y:248,es:["Alineación y llantas","Alineación, balanceo y rotación de llantas."],en:["Alignment & tires","Alignment, balancing and tire rotation."],i:{es:["Alineación", "Balanceo", "Rotación"],en:["Alignment", "Balancing", "Rotation"]}},
+ {id:5,x:345,y:140,es:["Aire acondicionado","Recarga de gas, fugas y limpieza del sistema."],en:["Air conditioning","Recharge, leak repair and system cleaning."],i:{es:["Recarga de gas", "Fugas", "Limpieza"],en:["Recharge", "Leak repair", "Cleaning"]}},
+ {id:6,x:490,y:135,es:["Diagnóstico con escáner","Lectura de códigos y revisión de luces del tablero."],en:["Scanner diagnostics","Code reading and dashboard warning lights."],i:{es:["Lectura de códigos", "Luces del tablero", "Informe por WhatsApp"],en:["Code reading", "Dashboard lights", "Report on WhatsApp"]}}
 ];
 const EXTRA=[
- {es:["Cambio de aceite","Aceite, filtro y revisión de niveles."],en:["Oil change","Oil, filter and fluid level check."],t:["30 min","30 min"],p:18000},
- {es:["Revisión pre-RTV","Revisamos todo antes de que vaya a la RTV."],en:["Pre-inspection check","We check everything before your RTV inspection."],t:["1 hora","1 hour"],p:10000},
- {es:["Sistema eléctrico","Batería, alternador, arranque y luces."],en:["Electrical system","Battery, alternator, starter and lights."],t:["2 horas","2 hours"],p:15000}
+ {es:["Cambio de aceite","Aceite, filtro y revisión de niveles."],en:["Oil change","Oil, filter and fluid level check."],i:{es:["Aceite y filtro", "Revisión de niveles", "Recordatorio del próximo"],en:["Oil and filter", "Fluid check", "Next-change reminder"]}},
+ {es:["Revisión pre-RTV","Revisamos todo antes de que vaya a la RTV."],en:["Pre-inspection check","We check everything before your RTV inspection."],i:{es:["Luces y frenos", "Emisiones", "Lista de pendientes"],en:["Lights and brakes", "Emissions", "To-do list"]}},
+ {es:["Sistema eléctrico","Batería, alternador, arranque y luces."],en:["Electrical system","Battery, alternator, starter and lights."],i:{es:["Batería", "Alternador y arranque", "Luces"],en:["Battery", "Alternator and starter", "Lights"]}}
 ];
 const STEPS=[
  {es:["Recepción","Revisamos el carro con usted y anotamos los síntomas."],en:["Drop-off","We look at the car with you and write down the symptoms."],m:["08:05","08:05"],d:1},
@@ -405,9 +405,9 @@ const T=a=>a[lang==="es"?0:1];
 function drawHotspots(){const sm=innerWidth<640,R=sm?26:15,F=sm?24:13;$("hotspots").innerHTML=SVC.map(s=>`<g class="hs${s.id===sel?" on":""}" data-id="${s.id}" tabindex="0" role="button" aria-label="${L(s)[0]}"><circle class="ring" cx="${s.x}" cy="${s.y}" r="${R-1}"/><circle class="dot" cx="${s.x}" cy="${s.y}" r="${R}"/><text x="${s.x}" y="${s.y}" style="font-size:${F}px">${s.id}</text></g>`).join("")}
 let _w=innerWidth;addEventListener("resize",()=>{if((innerWidth<640)!==(_w<640)){_w=innerWidth;drawHotspots()}});
 function drawInfo(){const s=SVC.find(x=>x.id===sel);const [n,d]=L(s);
- $("info").innerHTML=`<div class="n">0${s.id}</div><div><h3>${n}</h3><p>${d}</p></div><div class="pr"><small class="mono">${lang==="es"?"Desde":"From"}</small><b>${fmt(s.p)}</b></div><button class="go" data-q="${n}">${lang==="es"?"Cotizar este servicio":"Get a quote for this"} <svg class="i"><use href="#i-arrow"/></svg></button>`}
-function drawTable(){const all=[...SVC,...EXTRA];$("svcTable").innerHTML=all.map((s,i)=>{const [n,d]=L(s);return `<div class="row"><span class="num">${String(i+1).padStart(2,"0")}</span><h3>${n}</h3><p>${d}</p><span class="t"><svg class="i"><use href="#i-clock"/></svg>${T(s.t)}</span><span class="p"><small>${lang==="es"?"desde":"from"}</small>${fmt(s.p)}</span></div>`}).join("");
- $("qs").innerHTML=all.map(s=>`<option>${L(s)[0]}</option>`).join("")+`<option>${lang==="es"?"No sé, necesito diagnóstico":"Not sure, I need a diagnosis"}</option>`}
+ $("info").innerHTML=`<div class="n">0${s.id}</div><div><h3>${n}</h3><p>${d}</p></div><button class="go" data-q="${n}">${lang==="es"?"Cotizar este servicio":"Get a quote for this"} <svg class="i"><use href="#i-arrow"/></svg></button>`}
+function drawTable(){const all=[...SVC,...EXTRA],es=lang==="es";$("svcTable").innerHTML=all.map((s,i)=>{const [n,d]=L(s);return `<article class="sc"><span class="num">${String(i+1).padStart(2,"0")}</span><h3>${n}</h3><p>${d}</p><ul>${L(s.i).map(x=>`<li>${x}</li>`).join("")}</ul><button class="go" data-q="${n}">${es?"Cotizar":"Get a quote"} <svg class="i"><use href="#i-arrow"/></svg></button></article>`}).join("");
+ $("qs").innerHTML=all.map(s=>`<option>${L(s)[0]}</option>`).join("")+`<option>${es?"No sé, necesito diagnóstico":"Not sure, I need a diagnosis"}</option>`}
 function drawSteps(){$("steps").innerHTML=STEPS.map(s=>{const [n,d]=L(s);return `<div class="step"><span class="box">${s.d?'<svg class="i"><use href="#i-check"/></svg>':""}</span><div><b>${n}</b><p>${d}</p></div><span class="mono">${T(s.m)}</span></div>`}).join("")}
 function drawStatus(){const es=lang==="es";
  if(!plate){$("status").innerHTML=`<div class="empty"><span class="mono">${es?"Sin consulta":"No search yet"}</span><b style="font-size:19px">${es?"Escriba su placa para ver el estado de la reparación.":"Enter your plate to see the repair status."}</b><span>${es?"Le mostramos cada paso, desde que lo recibimos hasta que está listo para recoger.":"We show you every step, from drop-off to ready for pick-up."}</span></div>`;return}
@@ -435,6 +435,7 @@ $("fab").onclick=()=>showDemo(lang==="es"?"Hola Taller Hermanos Solís, quisiera
 function showDemo(msg){$("bubble").textContent=msg;$("wantBtn").href=`https://wa.me/${KEVIN_WA}?text=${encodeURIComponent("Hola Kevin, vi la demo del taller mecánico y me interesa una página así para mi negocio.")}`;$("modal").classList.add("open")}
 $("closeM").onclick=()=>$("modal").classList.remove("open");
 $("modal").onclick=e=>{if(e.target.id==="modal")$("modal").classList.remove("open")};
+$("svcTable").addEventListener("click",e=>{const b=e.target.closest(".go");if(!b)return;$("qs").value=b.dataset.q;$("cotizar").scrollIntoView();setTimeout(()=>$("qn").focus({preventScroll:true}),500)});
 drawBrands();drawAll();
 const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add("on");io.unobserve(x.target)}}),{threshold:.1});
 document.querySelectorAll(".rv").forEach(el=>io.observe(el));

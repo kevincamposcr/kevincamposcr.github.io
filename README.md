@@ -10,7 +10,7 @@ Sitio en línea: **https://kevincamposcr.github.io**
 |---|---|
 | `index.html` | Página principal: trabajos, servicios (sin precios, se cotiza cada caso), proceso, sobre mí, preguntas frecuentes y contacto |
 | `foto.jpg` | Foto de la sección "Sobre mí" (formato vertical 4:5) |
-| `demos/soda-la-esquina/` | Demo: soda con menú, plato del día y pedidos express por WhatsApp |
+| `demos/bruma-cafe/` | Demo: cafetería con carta por categorías, fotos de cada producto y pedidos para recoger por WhatsApp |
 | `demos/barberia-norte/` | Demo: barbería con lista de precios y reserva de citas |
 | `demos/veterinaria-patitas/` | Demo: veterinaria con citas, emergencias y consejos |
 | `demos/taller-hermanos-solis/` | Demo: taller mecánico bilingüe (español / inglés) con cotizaciones |
@@ -18,7 +18,7 @@ Sitio en línea: **https://kevincamposcr.github.io**
 | `demos/cafe-el-mirador/` | Demo: tienda de café con carrito, envíos y pago por SINPE Móvil o tarjeta |
 
 > Los negocios de las demos son ficticios y se usan solo para mostrar el trabajo.
-> Las fotos de la agencia de carros y la tienda de café son de [Pexels](https://www.pexels.com) (licencia libre); las ilustraciones de las demás demos son propias.
+> Las fotos de la agencia de carros, la tienda de café y Bruma Café son de [Pexels](https://www.pexels.com) (licencia libre); las ilustraciones de las demás demos son propias.
 
 ## Cómo editar
 

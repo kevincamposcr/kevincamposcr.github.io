@@ -126,7 +126,7 @@ const BOOKING = {
   whatsappConfirm: false,             // true solo cuando la confirmación por WhatsApp esté activada en Code.gs
   slotMinutes: 60,                    // duración de cada cita
   daysAhead: 14,                      // cuántos días hacia adelante se puede reservar
-  hours: { 1:[9,18], 2:[9,18], 3:[9,18], 4:[9,18], 5:[9,18], 6:[9,14] },  // 0 = domingo (cerrado). Hora de inicio y cierre.
+  hours: { 1:[9,18], 2:[9,18], 3:[9,18], 4:[9,18], 5:[9,18], 6:[9,12] },  // 0 = domingo (cerrado). Hora de inicio y cierre.
   services: [                         // ejemplo: ajustar a lo que ofrece la clínica
     ["Valoración y limpieza","i-check"], ["Odontología para niños y bebés","i-baby"],
     ["Restauración (resinas)","i-leaf"], ["Estética dental","i-eye"],
